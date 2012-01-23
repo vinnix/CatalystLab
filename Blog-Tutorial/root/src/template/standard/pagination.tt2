@@ -1,0 +1,24 @@
+    [% IF pagination != '' %]
+    <div class="pagination-space">
+        <div class="span-6 height35 paddingTop5 paddingBottom5">
+        P&aacute;gina:
+            [% IF pagination.previous != '' %]
+                <a href="[% pagination.previous.href %]">[% pagination.previous.label %]</a>
+            [% END %] 
+
+            [% IF pagination.current != '' %]
+                <a class="current">
+                  [% pagination.current.label %]
+                </a>
+            [% END %]
+
+            [% IF pagination.next != '' %]
+                <a href="[% pagination.next.href %]">[% pagination.next.label %]</a>
+            [% END %]
+        </div>
+        <div class="span-6 last height35 paddingTop5 paddingBottom5 quiet">
+          Total <strong class="loud">[% pagination.last_page %]</strong> p&aacute;ginas, <strong class="loud">[% pagination.total_entries %]</strong> itens.
+        </div>
+    </div>
+
+    [% END %]

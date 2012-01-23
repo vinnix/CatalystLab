@@ -1,0 +1,3 @@
+  Fa&ccedil;a login para acessar &aacute;reas restritas em nosso site:
+    <br><br>
+    [% form.render %]
