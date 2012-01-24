@@ -205,6 +205,27 @@ sub delete :Chained('object') :PathPart('delete') :Args(0) {
 
 }
 
+=head2 list_recent
+    
+    List recently created books
+    
+=cut
+    
+sub list_recent :Chained('base') :PathPart('list_recent') :Args(1) {
+        my ($self, $c, $mins) = @_;
+    
+        # Retrieve all of the book records as book model objects and store in the
+        # stash where they can be accessed by the TT template, but only
+        # retrieve books created within the last $min number of minutes
+        $c->stash(books => [$c->model('DB::Book')->created_after(DateTime->now->subtract(minutes => $mins))]);
+    
+        # Set the TT template to use.  You will almost always want to do this
+        # in your action methods (action methods respond to user input in
+        # your controllers).
+        $c->stash(template => 'books/list.tt2');
+}
+
+
 
 
 
