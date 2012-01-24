@@ -24,13 +24,14 @@
           [% # in TT that does return a value and you don't want it printed, you     -%]
           [% # 1) assign it to a bogus value, or                                     -%]
           [% # 2) use the CALL keyword to call it and discard the return value.      -%]
-          [% tt_authors = [ ];
-             tt_authors.push(author.full_name) FOREACH author = book.authors %]
+          [% ### tt_authors = [ ]; tt_authors.push(author.full_name) FOREACH author = book.authors %]
           [% # Now use a TT 'virtual method' to display the author count in parens   -%]
           [% # Note the use of the TT filter "| html" to escape dangerous characters -%]
-          ([% tt_authors.size | html %])
+          <!-- ([% tt_authors.size | html %]) -->
           [% # Use another TT vmethod to join & print the names & comma separators   -%]
           [% tt_authors.join(', ') | html %]
+	      [% # Print count and author list using Result Class methods -%]
+      		([% book.author_count | html %]) [% book.author_list | html %]
         </td>
         <td>
           [% # Add a link to delete a book %]
