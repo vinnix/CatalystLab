@@ -113,4 +113,19 @@ __PACKAGE__->many_to_many("books", "book_authors", "book");
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable;
+
+
+
+#
+# Row-level helper methods
+#
+sub full_name {
+      my ($self) = @_;
+    
+      return $self->first_name . ' ' . $self->last_name;
+}
+
+
+
+
 1;
