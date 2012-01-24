@@ -23,6 +23,8 @@
             <li><a href="[% c.uri_for('/books/list') %]">Home</a></li>
             <li><a href="[% c.uri_for('/')
                 %]" title="Catalyst Welcome Page">Welcome</a></li>
+            <li><a href="[% c.uri_for('/books/form_create')
+                %]" title="To Add a new book">New Book</a></li>
         </ul>
     </div><!-- end menu -->
     

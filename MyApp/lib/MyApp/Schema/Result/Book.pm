@@ -70,6 +70,10 @@ __PACKAGE__->has_many(
 
 
 
+
+# Created by DBIx::Class::Schema::Loader v0.07007 @ 2012-01-21 23:09:24
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:w5qlUztKgIIA/a0C40fr5w
+
 # many_to_many():
 #   args:
 #     1) Name of relationship bridge, DBIC will create accessor with this name
@@ -77,10 +81,6 @@ __PACKAGE__->has_many(
 #     3) Name of belongs_to() relationship in model class of has_many() above
 #   You must already have the has_many() defined to use a many_to_many().
 __PACKAGE__->many_to_many(authors => 'book_authors', 'author');
-
-# Created by DBIx::Class::Schema::Loader v0.07007 @ 2012-01-21 23:09:24
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:w5qlUztKgIIA/a0C40fr5w
-
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable;
