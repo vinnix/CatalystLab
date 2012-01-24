@@ -1,21 +1,38 @@
+use utf8;
 package MyApp::Schema::Result::Author;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
+
+=head1 NAME
+
+MyApp::Schema::Result::Author
+
+=cut
 
 use strict;
 use warnings;
 
 use Moose;
 use MooseX::NonMoose;
-use namespace::autoclean;
+use MooseX::MarkAsMethods autoclean => 1;
 extends 'DBIx::Class::Core';
 
-__PACKAGE__->load_components("InflateColumn::DateTime");
+=head1 COMPONENTS LOADED
 
-=head1 NAME
+=over 4
 
-MyApp::Schema::Result::Author
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=item * L<DBIx::Class::TimeStamp>
+
+=back
+
+=cut
+
+__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp");
+
+=head1 TABLE: C<author>
 
 =cut
 
@@ -49,6 +66,17 @@ __PACKAGE__->add_columns(
   "last_name",
   { data_type => "text", is_nullable => 1 },
 );
+
+=head1 PRIMARY KEY
+
+=over 4
+
+=item * L</id>
+
+=back
+
+=cut
+
 __PACKAGE__->set_primary_key("id");
 
 =head1 RELATIONS
@@ -68,17 +96,19 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 books
 
-# many_to_many():
-#   args:
-#     1) Name of relationship bridge, DBIC will create accessor with this name
-#     2) Name of has_many() relationship this many_to_many() is shortcut for
-#     3) Name of belongs_to() relationship in model class of has_many() above
-#   You must already have the has_many() defined to use a many_to_many().
-__PACKAGE__->many_to_many(books => 'book_authors', 'book');
+Type: many_to_many
 
-# Created by DBIx::Class::Schema::Loader v0.07007 @ 2012-01-21 23:09:24
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:CBvQ2zJm+7LRbiMbWz8CxA
+Composing rels: L</book_authors> -> book
+
+=cut
+
+__PACKAGE__->many_to_many("books", "book_authors", "book");
+
+
+# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-24 11:24:35
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:HBYyueYDRFZEdVCkYQMqhg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
