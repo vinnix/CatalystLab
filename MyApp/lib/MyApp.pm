@@ -63,7 +63,7 @@ __PACKAGE__->config(
           default => {
               class           => 'SimpleDB',
               user_model      => 'DB::User',
-              password_type   => 'clear',
+              password_type   => 'self_check',
           },
       },
 );

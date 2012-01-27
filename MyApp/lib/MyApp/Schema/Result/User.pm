@@ -26,11 +26,13 @@ extends 'DBIx::Class::Core';
 
 =item * L<DBIx::Class::TimeStamp>
 
+=item * L<DBIx::Class::PassphraseColumn>
+
 =back
 
 =cut
 
-__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp");
+__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp", "PassphraseColumn");
 
 =head1 TABLE: C<users>
 
@@ -135,10 +137,25 @@ Composing rels: L</user_roles> -> role
 __PACKAGE__->many_to_many("roles", "user_roles", "role");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-27 12:33:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:85o4SjB2FOURvExryt+eYQ
+# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-27 15:50:21
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:9uCWYT7TnL9KtZxMctp8Vg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
+
+# Have the 'password' column use a SHA-1 hash and 20-byte salt
+# with RFC 2307 encoding; Generate the 'check_password" method
+__PACKAGE__->add_columns(
+     'password' => {
+          passphrase       => 'rfc2307',
+          passphrase_class => 'SaltedDigest',
+          passphrase_args  => {
+              algorithm   => 'SHA-1',
+              salt_random => 20.
+          },
+          passphrase_check_method => 'check_password',
+      },
+);
+
 __PACKAGE__->meta->make_immutable;
 1;
