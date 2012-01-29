@@ -172,6 +172,21 @@ sub author_list {
 }
 
 
+=head2 delete_allowed_by
+    
+    Can the specified user delete the current book?
+    
+=cut
+    
+sub delete_allowed_by {
+        my ($self, $user) = @_;
+    
+        # Only allow delete if user has 'admin' role
+        return $user->has_role('admin');
+}
+
+
+
 # many_to_many():
 #   args:
 #     1) Name of relationship bridge, DBIC will create accessor with this name
