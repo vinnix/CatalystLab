@@ -1,0 +1,43 @@
+<!-- extlayout - defines the ExtJS layouts for the screen
+                 these should match <div> ids in the HTML templates -->
+<script type="text/javascript">
+Thescreen = function(){
+  return {
+    init: function(){
+      var layout = new Ext.BorderLayout(document.body, {
+        north: {
+          split:false,
+          titlebar: false
+        },  
+        west: {
+          split:true,
+          initialSize: 160,
+          titlebar: true,
+          collapsible: true,
+          minSize: 100,
+          maxSize: 400
+        },
+        center: {
+          autoScroll: true,
+          minTabWidth: 50,
+          preferredTabWidth: 150,
+          titlebar: true
+        },
+        south: {
+          split:false,
+          titlebar: false
+        }
+      });
+      
+      layout.beginUpdate();
+      layout.add('north', new Ext.ContentPanel('header'));
+      layout.add('west', new Ext.ContentPanel('nav', {title:'Navigation', fitToFrame:true, closable:false}));
+      layout.add('center', new Ext.ContentPanel('content', {title:'[% page.title or 'Page Title Goes Here' %]'}));
+      layout.add('south', new Ext.ContentPanel('footer', {closable:true}));
+      layout.endUpdate();
+    }
+  }
+}();
+Ext.EventManager.onDocumentReady(Thescreen.init, Thescreen, true);
+</script>
+

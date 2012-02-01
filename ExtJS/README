@@ -1,0 +1,13 @@
+Catalyst Advent Calendar 2007 day 1 and day 14.
+This is the supporting Catalyst ExtJS sample application.
+Please read those articles in association with this code.
+
+Run script/extjs_server.pl to test the application.
+
+The code includes below root/static/ext-1.1.1 a cut down version
+of the ext-1.1.1 library so this app will work if the reader
+forgets to install ExtJS. A lot of the examples and the manuals
+have been removed so you'd be better off downloading it from
+the extjs.com site as described in the day 1 article.
+
+Peter Edwards / peterdragon <peter@dragonstaff.co.uk>

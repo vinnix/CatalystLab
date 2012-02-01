@@ -1,0 +1,195 @@
+/* ttsite.css */
+
+html, body {
+      font:normal 12px verdana;
+      margin:0;
+      padding:0;
+      border:0 none;
+      overflow:hidden;
+      height:100%;
+  }
+
+#docs .x-layout-panel-north{
+   border:0px none;
+}
+
+#header{
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font:normal;
+    font-size: medium;
+    color: white;
+    /*background-color: [% site.col.head %];/*
+    border-bottom: 1px solid [% site.col.line %];*/
+}
+
+#footer{
+    background: url(/ext-1.1.1/examples/layout/images/header-bar.gif) repeat-x bottom;
+    border-top: 1px solid #083772;
+    padding:2px 4px;
+    font:normal 8pt arial,helvetica;
+    text-align: center;
+}
+
+#nav {
+}
+#nav, #inner1, #inner2 {
+    padding:10px;
+}
+#content p {
+    margin:5px;
+}
+#nav li {
+    padding:2px;
+    padding-left:10px;
+    background-image:url(/ext-1.1.1/examples/layout/images/bullet.gif);
+    background-position: -3px 6px;
+    background-repeat: no-repeat;
+    font-size:8pt;
+    display: block;
+  }
+.x-layout-panel-north, .x-layout-panel-south, #content .x-layout-panel-center{
+   border:0px none;
+   background:#0000aa url(/ext-1.1.1/resources/images/default/basic-dialog/hd-sprite.gif) repeat-x 0px -83px;
+   padding-top:3px;
+   padding-left:3px;
+}
+#content .x-layout-panel-south{
+    border-top:1px solid #aca899;
+}
+#content .x-layout-panel-center{
+    border-bottom:1px solid #aca899;
+}
+
+/* welcome */
+div.welcome {
+	background:url(/ext-1.1.1/docs/resources/welcome-bg.gif) top left;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	margin: 0px;
+	font-size:13px;
+	padding-bottom:15px;
+	height:100%;
+}
+.col{
+	width:45%;
+	float:left;
+	margin-left:10px;
+}
+.block{
+	border:3px solid #B2D0F7;
+	background:white url(/ext-1.1.1/docs/resources/block-bg.gif) repeat-x;
+	margin-top:10px;
+}
+.block-title{
+	color: #083772;
+	font-weight: bold;
+	padding: 4px;
+	padding-left: 8px;
+}
+.block-body{
+	padding:8px;
+	padding-top:2px;
+}
+.block-body b{
+	color:#333333;
+	font-size:11px;
+}
+.block-body em {
+	display:block;
+	margin-top:5px;
+	font-size:11px;
+   color:gray;
+	text-align:right;
+}
+
+h1.title {
+    padding: 4px;
+    margin: 0px;
+}
+
+.message {
+    color: [% site.col.message %];
+}
+
+.error {
+    color: [% site.col.error %];
+}
+
+/* booking */
+
+td.boxdataheading {
+   background-color: #EEEEFF;
+   color: #333399;
+   padding: 2px;
+   font-weight: bold;
+   text-align: center;
+}
+td.boxdatalabel {
+   background-color: #EEEEFF;
+   color: #333399;
+   font-size: 90%;
+   border-width: 0px;
+   padding: 2px;
+   font-weight: bold;
+}
+td.boxdatasubheading {
+   background-color: #EEEEFF;
+   color: #333399;
+   border-width: 0px;
+   padding: 2px;
+   font-weight: bold;
+   text-align: center;
+}
+td.boxdatavalue {
+  color: #333399;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  border-width: 0;
+  font-weight:bold;
+}
+td.boxsubvalue {
+  color: #333399;
+  background-color: #FFFFFF;
+}
+span.boxdatavalue { /*
+  background-color: lightgrey;
+  padding: 2px;
+*/ }
+table.summary strong {
+   font-weight: bold;  
+}
+table.boxdata {
+  border-color: #EEEEFF;
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 2px;
+  border-style: outset;
+}
+table.boxsubdata {
+  border-color: #EEEEFF;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#infobox_booking {
+   float: left;
+   width: 57%;
+   margin: 1%;
+}
+
+#infobox_status {
+   float: right;
+   width: 37%;
+   margin: 1%;
+}
+
+#infobox_customer {
+   float: left;
+   width: 57%;
+   margin: 1%;
+}
+
+a.copyright:link, a.copyright:visited, a.copyright:active {
+  /* text-decoration: none; */
+  color: gray;
+}

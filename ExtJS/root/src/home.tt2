@@ -1,0 +1,23 @@
+[% META title = 'Catalyst ExtJS Home' %]
+
+ <div class="col">
+   <div class="block">
+     <h3 class="block-title">Welcome!</h3>
+     <div class="block-body">
+         Welcome to the Catalyst ExtJS demo.<br /><br />
+     </div>
+   </div>
+
+   <div class="block">
+     <div class="block-body">
+         There are four panels on this page: the menu nav bar, the heading bar reading
+         "Catalyst Advent Calendar...", this main content panel and a footer bar.
+         <br /><br />
+         Try clicking on the left menu collapse chevron to the right of "Navigation".
+         Then click on the left bar to see ExtJS slide the menu out. Mouse away
+         and it slides back.<br /><br />
+         Next try clicking on the "Hello" menu entry.<br /><br />
+     </div>
+   </div>
+
+ </div>

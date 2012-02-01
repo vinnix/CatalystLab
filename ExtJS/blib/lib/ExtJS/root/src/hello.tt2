@@ -1,0 +1,41 @@
+[% META title = 'Catalyst ExtJS Hello' %]
+<p>
+
+<script type="text/javascript">
+Ext.onReady(function(){
+   Ext.QuickTips.init();
+   
+
+
+    var tb = new Ext.Toolbar('toolbar');
+    tb.add({
+        text: 'Toggle Me',
+        enableToggle: true,
+        toggleHandler: onItemToggle,
+        pressed: true
+    }, '-', {
+        text: 'Disabled Item',
+        disabled: true
+    });
+
+    function onItemToggle(item, pressed){
+        alert('Button Toggled', 'Button "{0}" was toggled to {1}.', item.text, pressed);
+    }
+
+});
+</script>
+
+<div id="toolbar" style=""></div>
+
+   Hello. Here is a minimalist page.
+   <br /><br />
+   This time I passed in a page title 
+   to the template and ExtJS has added it at the top of the content panel. I also put in a small toolbar.
+   <br /><br />
+   To make this page more exciting you could try editing root/src/hello.tt2 and adding
+   sub-menus to the ExtJS toolbar menu like the ones in ext-1.1.1/examples/menu/menus.html,
+   also viewable online at
+   <a href="http://extjs.com/deploy/ext/examples/menu/menus.html">http://extjs.com/deploy/ext/examples/menu/menus.html</a>.
+   <br /><br />
+   Next try clicking the "Booking" menu links.
+</p>

@@ -1,0 +1,22 @@
+<!-- BEGIN site/header -->
+<div id="header">
+  <span>[% site.title %]</span>
+</div>
+
+<!-- here's our menu; in practice you might load this dynamically
+     and do what they do in the ExtJS API manual and use a click event
+     handler on these links to dynamically reload the contents of the main
+     <div id="content"...> panel on the right rather than reload the
+     whole page -->
+     
+<div id="nav" class="x-layout-inactive-content">
+ <ul>
+   <li><a href="[% Catalyst.uri_for('/home') %]">Home</a>
+   <li><a href="[% Catalyst.uri_for('/hello') %]">Hello</a>
+   <li><a href="[% Catalyst.uri_for('/booking/2') %]">Booking 2</a>
+   <li><a href="[% Catalyst.uri_for('/booking/4001') %]">Booking 4001</a>
+   <li><a href="http://www.google.com" target="_blank">Google</a>
+ </ul>
+</div>
+
+<!-- END site/header -->

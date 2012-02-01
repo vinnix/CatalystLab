@@ -1,0 +1,191 @@
+[% META title = 'Catalyst ExtJS Booking' %]
+
+ <div class="col">
+
+<script type="text/javascript">
+BookingTabs = function(){
+  return {
+    init: function(){
+      var tabs = new Ext.TabPanel("tabs1");
+      tabs.addTab("bkpg1", "Main Information");
+      tabs.addTab("bkpg2", "Customer");
+      
+      tabs.activate("bkpg1");
+      
+    }
+  }
+}();
+Ext.EventManager.onDocumentReady(BookingTabs.init, BookingTabs, true);
+</script>
+
+<p>A simple record view with two tabs. ExtJS has lots of options for tab layouts,
+tabs that can be closed and so on.</p>
+<p>The booking data here has been passed in as a DBIx::Class resultset row object.</p>
+<p>Well, that's it for today folks, I hope you enjoyed
+the article and it encourages you to have a play with Catalyst and ExtJS.<br />--peterdragon</p>
+
+<form method='get' action='[% Catalyst.req.base %][% Catalyst.req.path %]'>
+
+   <div class="block">
+     <div class="block-body">
+
+<table class="summary">
+<tbody>
+<tr>
+    <td>
+<!-- normally you would use a TT macro to lookup the field label and generate
+     the HTML it is wrapped in but we use straight HTML here for clarity -->
+    <strong>Booking</strong>
+    [% booking.id %]
+    </td>
+    <td>
+    <strong>Start Date</strong>
+    [% booking.start_date %]
+    </td>
+    <td>
+    <strong>End Date</strong>
+    [% booking.end_date %]
+    </td>
+    <td>
+    <strong>Customer Code</strong>
+    [% booking.customer_code %]
+    </td>
+</tr>
+<tr>
+    <td>
+    <strong>Resource</strong>
+     [% booking.resource %]
+    </td>
+    <td>
+    <strong>Resource Name</strong>
+    [% booking.resource_name %]
+    </td>
+    <td>
+    <strong>PO Ref</strong>
+    [% booking.po_ref %]
+    </td>
+    <td>
+    <strong>Customer Name</strong>
+    [% booking.customer_name %]
+    </td>    
+</tr>
+</tbody>
+</table>
+   
+
+<!-- define tab 1 -->
+<div id="bkpg1">
+
+<table border="2" class="boxdata" id="infobox_booking">
+<tbody>
+<tr><td class="boxdataheading" colspan=2>Booking</td></tr>
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Assignment</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.assignment %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Order No.</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.order_no %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Department</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.department %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Comments</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.comments %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Work Telephone</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.work_tel %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Report To</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.report_to %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Address</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.report_address %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Postcode</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.report_postcode %]</span></td>
+    </tr>
+
+</tbody>
+</table>
+
+<table border="2" class="boxdata" id="infobox_status">
+<tbody>
+<tr><td class="boxdataheading" colspan=2>Status</td></tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Booking Type</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.type %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Status</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.status %]</span></td>
+    </tr>
+
+</tbody>
+</table>
+
+</div>
+
+
+<!-- define tab 2 -->
+<div id="bkpg2">
+
+<table border="2" class="boxdata" id="infobox_customer">
+<tbody>
+<tr><td class="boxdataheading" colspan=2>Customer</td></tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Cost code</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.cost_code %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Cost centre</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.cost_centre %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Telephone</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.customer_tel %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Project</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.project %]</span></td>
+    </tr>
+
+    <tr>
+    <td class="boxdatalabel"><span class="boxdatalabel">Skill Codes</span></td>
+    <td class="boxdatavalue"><span class="boxdatavalue">[% booking.skill_codes %]</span></td>
+    </tr>
+    
+</tbody>
+</table>
+
+</div>
+
+
+<!-- ExtJS will attach tab1 and tab2 to this div and render them as a tab set -->
+<div id="tabs1" class="xp"></div>
+
+     </div>
+   </div>
+
+</form>
+
+ </div>

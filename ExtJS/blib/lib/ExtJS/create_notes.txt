@@ -1,0 +1,12 @@
+Some commands I used when creating this app.
+See the Catalyst manual for further details:
+http://search.cpan.org/search?query=catalyst%3A%3Amanual&mode=all
+
+sqlite3 -echo extjs.db < extjs.sql
+
+script/extjs_create.pl model ExtJSModel DBIC::Schema ExtJS::Schema create=dynamic dbi:SQLite:extjs.db
+
+script/extjs_create.pl view TT TTSite
+
+
+
