@@ -1,7 +1,7 @@
 # This Makefile is for the ExtJS extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.62 (Revision: 66200) from the contents of
+# 6.56 (Revision: 65600) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -12,9 +12,8 @@
 #   MakeMaker Parameters:
 
 #     ABSTRACT => q[Catalyst based application]
-#     AUTHOR => [q[Peter Edwards <peter@dragonstaff.co.uk>]]
+#     AUTHOR => q[Peter Edwards <peter@dragonstaff.co.uk>]
 #     BUILD_REQUIRES => { ExtUtils::MakeMaker=>q[6.42] }
-#     CONFIGURE_REQUIRES => {  }
 #     DISTNAME => q[ExtJS]
 #     EXE_FILES => [q[script/dump_bookings.pl], q[script/extjs_cgi.pl], q[script/extjs_create.pl], q[script/extjs_fastcgi.pl], q[script/extjs_server.pl], q[script/extjs_test.pl]]
 #     LICENSE => q[perl]
@@ -23,7 +22,7 @@
 #     PREREQ_PM => { Catalyst::View::TT=>q[0], YAML=>q[0], Catalyst::Plugin::Static::Simple=>q[0], ExtUtils::MakeMaker=>q[6.42], Catalyst::Plugin::ConfigLoader=>q[0], Config::Any::Perl=>q[0], Catalyst::Action::RenderView=>q[0], Catalyst::Model::DBIC::Schema=>q[0], Data::Dump=>q[0], Catalyst=>q[5.7007], Path::Class::File=>q[0], DBIx::Class::Schema::Loader=>q[0], Catalyst::Plugin::ConfigLoader::Multi=>q[0] }
 #     VERSION => q[0.01]
 #     VERSION_FROM => q[lib/ExtJS.pm]
-#     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
+#     dist => {  }
 #     realclean => { FILES=>q[MYMETA.yml] }
 #     test => { TESTS=>q[t/01app.t t/02pod.t t/03podcoverage.t t/10_schema.t t/controller_ExtJS-Controller-ExtJS.t t/controller_ExtJS.t t/model_ExtJSModel.t] }
 
@@ -32,30 +31,30 @@
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via /opt/local/lib/perl5/5.12.3/darwin-multi-2level/Config.pm).
+# These definitions are from config.sh (via /usr/local/lib/perl5/5.12.4/mach/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
 AR = ar
-CC = /usr/bin/gcc-4.0
-CCCDLFLAGS =  
-CCDLFLAGS =  
-DLEXT = bundle
+CC = cc
+CCCDLFLAGS = -DPIC -fPIC
+CCDLFLAGS =   -Wl,-R/usr/local/lib/perl5/5.12.4/mach/CORE
+DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
-LD = env MACOSX_DEPLOYMENT_TARGET=10.5 /usr/bin/gcc-4.0
-LDDLFLAGS = -L/opt/local/lib  -bundle -undefined dynamic_lookup -fstack-protector
-LDFLAGS = -L/opt/local/lib  -fstack-protector
+LD = cc
+LDDLFLAGS = -shared  -L/usr/local/lib -fstack-protector
+LDFLAGS = -pthread -Wl,-E  -fstack-protector -L/usr/local/lib
 LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
-OSNAME = darwin
-OSVERS = 9.8.0
-RANLIB = ranlib
-SITELIBEXP = /opt/local/lib/perl5/site_perl/5.12.3
-SITEARCHEXP = /opt/local/lib/perl5/site_perl/5.12.3/darwin-multi-2level
-SO = dylib
-VENDORARCHEXP = /opt/local/lib/perl5/vendor_perl/5.12.3/darwin-multi-2level
-VENDORLIBEXP = /opt/local/lib/perl5/vendor_perl/5.12.3
+OSNAME = freebsd
+OSVERS = 10.0-current
+RANLIB = :
+SITELIBEXP = /usr/local/lib/perl5/site_perl/5.12.4
+SITEARCHEXP = /usr/local/lib/perl5/site_perl/5.12.4/mach
+SO = so
+VENDORARCHEXP = 
+VENDORLIBEXP = 
 
 
 # --- MakeMaker constants section:
@@ -77,60 +76,60 @@ INST_BIN = blib/bin
 INST_LIB = blib/lib
 INST_MAN1DIR = blib/man1
 INST_MAN3DIR = blib/man3
-MAN1EXT = 1pm
-MAN3EXT = 3pm
+MAN1EXT = 1
+MAN3EXT = 3
 INSTALLDIRS = site
 DESTDIR = 
-PREFIX = $(SITEPREFIX)
-PERLPREFIX = /opt/local
-SITEPREFIX = /opt/local
-VENDORPREFIX = /opt/local
-INSTALLPRIVLIB = /opt/local/lib/perl5/5.12.3
+PREFIX = /usr/local
+PERLPREFIX = /usr/local
+SITEPREFIX = /usr/local
+VENDORPREFIX = 
+INSTALLPRIVLIB = /usr/local/lib/perl5/5.12.4
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /opt/local/lib/perl5/site_perl/5.12.3
+INSTALLSITELIB = /usr/local/lib/perl5/site_perl/5.12.4
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = /opt/local/lib/perl5/vendor_perl/5.12.3
+INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /opt/local/lib/perl5/5.12.3/darwin-multi-2level
+INSTALLARCHLIB = /usr/local/lib/perl5/5.12.4/mach
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /opt/local/lib/perl5/site_perl/5.12.3/darwin-multi-2level
+INSTALLSITEARCH = /usr/local/lib/perl5/site_perl/5.12.4/mach
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = /opt/local/lib/perl5/vendor_perl/5.12.3/darwin-multi-2level
+INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /opt/local/bin
+INSTALLBIN = /usr/local/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /opt/local/bin
+INSTALLSITEBIN = /usr/local/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = /opt/local/bin
+INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /opt/local/bin
+INSTALLSCRIPT = /usr/local/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = /opt/local/bin
+INSTALLSITESCRIPT = /usr/local/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = /opt/local/bin
+INSTALLVENDORSCRIPT = 
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = /opt/local/share/man/man1p
+INSTALLMAN1DIR = /usr/local/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /opt/local/share/man/man1
+INSTALLSITEMAN1DIR = /usr/local/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /opt/local/share/man/man1
+INSTALLVENDORMAN1DIR = 
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = /opt/local/share/man/man3p
+INSTALLMAN3DIR = /usr/local/lib/perl5/5.12.4/perl/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /opt/local/share/man/man3
+INSTALLSITEMAN3DIR = /usr/local/lib/perl5/5.12.4/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /opt/local/share/man/man3
+INSTALLVENDORMAN3DIR = 
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB =
-PERL_ARCHLIB = /opt/local/lib/perl5/5.12.3/darwin-multi-2level
+PERL_ARCHLIB = /usr/local/lib/perl5/5.12.4/mach
 LIBPERL_A = libperl.a
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
-PERL_INC = /opt/local/lib/perl5/5.12.3/darwin-multi-2level/CORE
-PERL = /opt/local/bin/perl "-Iinc"
-FULLPERL = /opt/local/bin/perl "-Iinc"
+PERL_INC = /usr/local/lib/perl5/5.12.4/mach/CORE
+PERL = /usr/bin/perl "-Iinc"
+FULLPERL = /usr/bin/perl "-Iinc"
 ABSPERL = $(PERL)
 PERLRUN = $(PERL)
 FULLPERLRUN = $(FULLPERL)
@@ -143,9 +142,9 @@ PERM_DIR = 755
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /opt/local/lib/perl5/5.12.3/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.62
-MM_REVISION = 66200
+MAKEMAKER   = /usr/local/lib/perl5/5.12.4/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.56
+MM_REVISION = 65600
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -203,25 +202,34 @@ TO_INST_PM = lib/ExtJS.pm \
 	lib/ExtJS/Controller/ExtJS.pm \
 	lib/ExtJS/Controller/Root.pm \
 	lib/ExtJS/Model/ExtJSModel.pm \
+	lib/ExtJS/Model/ExtJSModel.pm.new \
 	lib/ExtJS/Schema.pm \
-	lib/ExtJS/View/TT.pm
+	lib/ExtJS/Schema.pm.new \
+	lib/ExtJS/View/TT.pm \
+	lib/ExtJS/View/TT.pm.new
 
 PM_TO_BLIB = lib/ExtJS/View/TT.pm \
 	blib/lib/ExtJS/View/TT.pm \
-	lib/ExtJS/Model/ExtJSModel.pm \
-	blib/lib/ExtJS/Model/ExtJSModel.pm \
 	lib/ExtJS/Controller/Root.pm \
 	blib/lib/ExtJS/Controller/Root.pm \
+	lib/ExtJS.pm \
+	blib/lib/ExtJS.pm \
+	lib/ExtJS/Schema.pm.new \
+	blib/lib/ExtJS/Schema.pm.new \
+	lib/ExtJS/Model/ExtJSModel.pm \
+	blib/lib/ExtJS/Model/ExtJSModel.pm \
+	lib/ExtJS/View/TT.pm.new \
+	blib/lib/ExtJS/View/TT.pm.new \
 	lib/ExtJS/Controller/ExtJS.pm \
 	blib/lib/ExtJS/Controller/ExtJS.pm \
 	lib/ExtJS/Schema.pm \
 	blib/lib/ExtJS/Schema.pm \
-	lib/ExtJS.pm \
-	blib/lib/ExtJS.pm
+	lib/ExtJS/Model/ExtJSModel.pm.new \
+	blib/lib/ExtJS/Model/ExtJSModel.pm.new
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 6.62
+MM_Unix_VERSION = 6.56
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
@@ -271,14 +279,14 @@ makemakerdflt : all
 
 
 # --- MakeMaker dist section:
-TAR = COPY_EXTENDED_ATTRIBUTES_DISABLE=1 COPYFILE_DISABLE=1 tar
+TAR = tar
 TARFLAGS = cvf
 ZIP = zip
 ZIPFLAGS = -r
 COMPRESS = gzip --best
 SUFFIX = .gz
 SHAR = shar
-PREOP = $(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"
+PREOP = $(NOECHO) $(NOOP)
 POSTOP = $(NOECHO) $(NOOP)
 TO_UNIX = $(NOECHO) $(NOOP)
 CI = ci -u
@@ -445,11 +453,11 @@ manifypods : pure_all  \
 	script/extjs_create.pl \
 	script/extjs_server.pl \
 	lib/ExtJS/View/TT.pm \
-	lib/ExtJS/Model/ExtJSModel.pm \
 	lib/ExtJS/Controller/Root.pm \
+	lib/ExtJS/Model/ExtJSModel.pm \
 	lib/ExtJS/Controller/ExtJS.pm \
-	lib/ExtJS/Schema.pm \
-	lib/ExtJS.pm
+	lib/ExtJS.pm \
+	lib/ExtJS/Schema.pm
 	$(NOECHO) $(POD2MAN) --section=1 --perm_rw=$(PERM_RW) \
 	  script/extjs_cgi.pl $(INST_MAN1DIR)/extjs_cgi.pl.$(MAN1EXT) \
 	  script/extjs_fastcgi.pl $(INST_MAN1DIR)/extjs_fastcgi.pl.$(MAN1EXT) \
@@ -458,11 +466,11 @@ manifypods : pure_all  \
 	  script/extjs_server.pl $(INST_MAN1DIR)/extjs_server.pl.$(MAN1EXT) 
 	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
 	  lib/ExtJS/View/TT.pm $(INST_MAN3DIR)/ExtJS::View::TT.$(MAN3EXT) \
-	  lib/ExtJS/Model/ExtJSModel.pm $(INST_MAN3DIR)/ExtJS::Model::ExtJSModel.$(MAN3EXT) \
 	  lib/ExtJS/Controller/Root.pm $(INST_MAN3DIR)/ExtJS::Controller::Root.$(MAN3EXT) \
+	  lib/ExtJS/Model/ExtJSModel.pm $(INST_MAN3DIR)/ExtJS::Model::ExtJSModel.$(MAN3EXT) \
 	  lib/ExtJS/Controller/ExtJS.pm $(INST_MAN3DIR)/ExtJS::Controller::ExtJS.$(MAN3EXT) \
-	  lib/ExtJS/Schema.pm $(INST_MAN3DIR)/ExtJS::Schema.$(MAN3EXT) \
-	  lib/ExtJS.pm $(INST_MAN3DIR)/ExtJS.$(MAN3EXT) 
+	  lib/ExtJS.pm $(INST_MAN3DIR)/ExtJS.$(MAN3EXT) \
+	  lib/ExtJS/Schema.pm $(INST_MAN3DIR)/ExtJS::Schema.$(MAN3EXT) 
 
 
 
@@ -540,15 +548,14 @@ clean :: clean_subdirs
 	  *$(LIB_EXT) core \
 	  core.[0-9] $(INST_ARCHAUTODIR)/extralibs.all \
 	  core.[0-9][0-9] $(BASEEXT).bso \
-	  pm_to_blib.ts MYMETA.json \
-	  core.[0-9][0-9][0-9][0-9] MYMETA.yml \
+	  pm_to_blib.ts core.[0-9][0-9][0-9][0-9] \
 	  $(BASEEXT).x $(BOOTSTRAP) \
 	  perl$(EXE_EXT) tmon.out \
 	  *$(OBJ_EXT) pm_to_blib \
 	  $(INST_ARCHAUTODIR)/extralibs.ld blibdirs.ts \
 	  core.[0-9][0-9][0-9][0-9][0-9] *perl.core \
 	  core.*perl.*.? $(MAKE_APERL_FILE) \
-	  $(BASEEXT).def perl \
+	  perl $(BASEEXT).def \
 	  core.[0-9][0-9][0-9] mon.out \
 	  lib$(BASEEXT).def perlmain.c \
 	  perl.exe so_locations \
@@ -666,12 +673,8 @@ ci :
 
 # --- MakeMaker distmeta section:
 distmeta : create_distdir metafile
-	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -e q{META.yml};' \
-	  -e 'eval { maniadd({q{META.yml} => q{Module YAML meta-data (added by MakeMaker)}}) }' \
+	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{META.yml} => q{Module meta-data (added by MakeMaker)}}) } ' \
 	  -e '    or print "Could not add META.yml to MANIFEST: $${'\''@'\''}\n"' --
-	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -f q{META.json};' \
-	  -e 'eval { maniadd({q{META.json} => q{Module JSON meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.json to MANIFEST: $${'\''@'\''}\n"' --
 
 
 
@@ -824,7 +827,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
-FULLPERL      = /opt/local/bin/perl
+FULLPERL      = /usr/bin/perl
 
 $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
@@ -884,7 +887,7 @@ ppd :
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Data::Dump" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Path::Class::File" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="YAML::" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="darwin-multi-2level-5.12" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="amd64-freebsd-thread-multi-5.12" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -895,11 +898,14 @@ ppd :
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
 	  lib/ExtJS/View/TT.pm blib/lib/ExtJS/View/TT.pm \
-	  lib/ExtJS/Model/ExtJSModel.pm blib/lib/ExtJS/Model/ExtJSModel.pm \
 	  lib/ExtJS/Controller/Root.pm blib/lib/ExtJS/Controller/Root.pm \
+	  lib/ExtJS.pm blib/lib/ExtJS.pm \
+	  lib/ExtJS/Schema.pm.new blib/lib/ExtJS/Schema.pm.new \
+	  lib/ExtJS/Model/ExtJSModel.pm blib/lib/ExtJS/Model/ExtJSModel.pm \
+	  lib/ExtJS/View/TT.pm.new blib/lib/ExtJS/View/TT.pm.new \
 	  lib/ExtJS/Controller/ExtJS.pm blib/lib/ExtJS/Controller/ExtJS.pm \
 	  lib/ExtJS/Schema.pm blib/lib/ExtJS/Schema.pm \
-	  lib/ExtJS.pm blib/lib/ExtJS.pm 
+	  lib/ExtJS/Model/ExtJSModel.pm.new blib/lib/ExtJS/Model/ExtJSModel.pm.new 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 
@@ -911,25 +917,6 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 
 # End.
 # Postamble by Module::Install 1.01
-# --- Module::Install::Admin::Makefile section:
-
-realclean purge ::
-	$(RM_F) $(DISTVNAME).tar$(SUFFIX)
-	$(RM_F) MANIFEST.bak _build
-	$(PERL) "-Ilib" "-MModule::Install::Admin" -e "remove_meta()"
-	$(RM_RF) inc
-
-reset :: purge
-
-upload :: test dist
-	cpan-upload -verbose $(DISTVNAME).tar$(SUFFIX)
-
-grok ::
-	perldoc Module::Install
-
-distsign ::
-	cpansign -s
-
 catalyst_par :: all
 	$(NOECHO) $(PERL) -Ilib -Minc::Module::Install -MModule::Install::Catalyst -e"Catalyst::Module::Install::_catalyst_par( '', 'ExtJS', { CLASSES => [], PAROPTS =>  {}, ENGINE => 'CGI', SCRIPT => '', USAGE => q## } )"
 # --- Module::Install::AutoInstall section:
