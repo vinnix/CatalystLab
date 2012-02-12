@@ -16,6 +16,8 @@
    <li><a href="[% Catalyst.uri_for('/booking/2') %]">Booking 2</a>
    <li><a href="[% Catalyst.uri_for('/booking/4001') %]">Booking 4001</a>
    <li><a href="http://www.google.com" target="_blank">Google</a>
+   <li><a href="[% Catalyst.uri_for('/login') %]">Login</a>
+   <li><a href="[% Catalyst.uri_for('/logout') %]">Logout</a>
  </ul>
 </div>
 
