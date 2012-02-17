@@ -22,7 +22,9 @@ requires 'Catalyst::Plugin::Session::Store::File';
 requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Plugin::Authorization::Roles';
 requires 'Perl6::Junction';
-
+requires 'HTML::FormFu';
+requires 'Catalyst::Controller::HTML::FormFu';
+requires 'HTML::FormFu::Model::DBIC';
 
 # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';
