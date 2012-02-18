@@ -28,7 +28,7 @@ requires:
   Catalyst::Plugin::Session::State::Cookie: 0
   Catalyst::Plugin::Session::Store::File: 0
   Catalyst::Plugin::Static::Simple: 0
-  Catalyst::Runtime: 5.80031
+  Catalyst::Runtime: 5.90009
   Config::General: 0
   HTML::FormFu: 0
   HTML::FormFu::Model::DBIC: 0
