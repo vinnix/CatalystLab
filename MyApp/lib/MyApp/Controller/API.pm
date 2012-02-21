@@ -46,5 +46,26 @@ sub grid_POST {
  
     $self->status_ok($c, entity => \%data);
 }
+
+
+
+	
+sub book : Local ActionClass('REST') {
+    my ($self, $c, $id) = @_;
+ 
+    $c->stash(book => $c->model('DB::Book')->find($id));
+}
+ 
+sub book_DELETE {
+    my ($self, $c, $id) = @_;
+ 
+    $c->stash->{book}->delete;
+ 
+    $self->status_ok($c, entity => { message => 'success' });
+}
+
+
+
+
  
 1;

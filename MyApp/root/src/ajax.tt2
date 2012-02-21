@@ -7,8 +7,13 @@
   </script>
   <script language="javascript" src="[% c.uri_for('/static/js/flexigrid.js') %]">
   </script>
+  <script language="javascript" src="[% c.uri_for('/static/js/jquery.form.js') %]">
+  </script>
 </head>
 <body>
+
+
+<div id="book_form" style="display:none"></div>
  
 <table id="books_grid" style="display:none"></table>
  
@@ -28,9 +33,64 @@ background: url([% c.uri_for('/static/css/images/flexigrid/close.png') %]) no-re
 </style>
  
 <script type="text/javascript">
-function add_book(button, grid) {}
-function edit_book(button, grid) {}
-function delete_book(button, grid) {}
+function add_book(button, grid) {
+    var form_div = $('#book_form');
+ 
+    form_div.load('/ajax/book_form_add', null, function() {
+        $('#book_form form').ajaxForm({
+            url: '/ajax/book_form_add',
+            success: function() {
+                form_div.hide();
+                $('#books_grid').flexReload();
+            }
+        });
+        form_div.show();
+    });
+}
+
+
+function edit_book(button, grid) {
+    var id = $('.trSelected td:nth-child(1) div', grid).html();
+    var form_div = $('#book_form');
+    var url = '/ajax/book_form_edit/' + id;                                                                               
+ 
+    form_div.load(url, null, function() {
+        $('#book_form form').ajaxForm({
+            url: url,
+            success: function() {
+                form_div.hide();
+                $('#books_grid').flexReload();
+            }
+        });
+        form_div.show();
+    });
+}
+
+
+function delete_book(button, grid) {
+    var total_count = $('.trSelected', grid).length;
+    var deleted     = 0;
+ 
+    $.each($('.trSelected', grid), function() {
+        var id = $('td:nth-child(1) div', this).html();
+        $.ajax({
+            url: '/api/book/' + id,
+            type: 'DELETE',
+            data: {},
+            dataType: 'json',
+            success: function() {
+                deleted++;
+                if (deleted == total_count) {
+                    $('#books_grid').flexReload();
+                }
+            }
+        });
+    });
+}
+
+
+
+
  
 $("#books_grid").flexigrid({
     url: '/api/grid',
