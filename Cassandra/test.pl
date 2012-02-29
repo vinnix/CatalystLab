@@ -96,9 +96,11 @@ sub test
     print "Adding some new columns/values to a previous added key... \n";
     Vinnix::Cassandra->save('jsmith');
 
-
     print "Adding new columns/values to a new key... \n";
     Vinnix::Cassandra->save('jsmith2');
+
+    # After insert two or more keys, I think that I need to ask:
+    # is there a way to get all keys of certain $columnFamily? how do I make it happens?
 
 
     print "Showing all columns/values of certain key... \n";
@@ -109,9 +111,12 @@ sub test
 
     print "Deleting a key that was previous added from another application... \n";
     Vinnix::Cassandra->delete('jsmith');
+    # Why this call does not delete all columns/values of jsmith key?
+    # (maybe is something related with timestamps?? because jsmith values was inserted before directly from cassandra-cli)
 
     print "Deleting a new key... \n";
     Vinnix::Cassandra->delete('jsmith2');
+    # here all column/values are deleted normaly
 
     print "After deleting, show columns/values of a previous added key... \n";
     Vinnix::Cassandra->show_columns('jsmith');
