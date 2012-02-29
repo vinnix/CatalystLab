@@ -19,7 +19,7 @@ sub grid_POST {
     my %data;
  
     my $rs = $c->model('DB::Book')->search({}, {
-        order_by => "$sort_by $sort_order",
+        order_by => {"-".$sort_order => $sort_by},
     });
  
     $rs = $rs->search_literal("lower($search_by) LIKE ?", lc($search_text))
