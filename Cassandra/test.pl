@@ -5,14 +5,18 @@ package Vinnix::Cassandra;
 use Cassandra::Lite;
 use Data::Dumper;
 use Moose;
+use strict;
 
+my $c;
 
-sub test
+my $debug = 0;
+
+#  just define $columnFamily and $key
+my $columnFamily = 'Users';
+
+sub connect
 {
-
-    my $debug = 0;
-    my $delete = 0;
-    my $c = Cassandra::Lite->new(
+     $c = Cassandra::Lite->new(
                 server_name => 'localhost',      # optional, default to '127.0.0.1'
                 server_port => 9160,             # optional, default to 9160
                 username => '',                  # optional, default to empty string ''
@@ -23,34 +27,107 @@ sub test
                 transport_write => 1024,         # optional, default to 1024
                 keyspace => 'Keyspace1',         #
             );
+}
 
-
-    # Now just define $columnFamily and $key
-    my $columnFamily = 'Users';
-    my $key = 'jsmith';
+sub save
+{
+    my $self = shift;
+    my $key = shift;
+    
+    my $values = { title => 'testing title', 
+                    body => 'yeah............Body!',
+                    age4 => 44,
+                    age2 => ''
+                 };
 
     # Insert it.
-    $c->put($columnFamily, $key, {title => 'testing title', body => '...'});
+    $c->put($columnFamily, $key, $values );
 
-    my $scalarValue = $c->get($columnFamily, $key, 'title');
+}
 
-    print "$scalarValue \n";
+
+sub show_columns
+{
+
+    my $self = shift;
+    my $key = shift;
 
     # Get all columns
     my $hashRef = $c->get($columnFamily, $key);
 
-    foreach $key (keys %$hashRef)
+    foreach $key (sort keys %$hashRef)
     {
-        print "Chave: $key  / Valor: $hashRef->{$key} \n";
+        print "key: $key -> value: $hashRef->{$key} \n";
     }
-    print Dumper($hashRef) . " \n" if $debug;
-    print "$hashRef->{first} \n";
 
+    #print "First: $hashRef->{first} \n";
+    print Dumper($hashRef) . " \n" if $debug;
+
+}
+
+sub delete
+{
+    my $self = shift;
+    my $key  = shift;
     # Remove it
-    $c->delete($columnFamily, $key) if $delete;
+    $c->delete($columnFamily, $key );
+}
+
+sub getColumnValue
+{
+    my $self = shift;
+    my $key = shift;
+    my $column_name = shift;
+
+    print "Getting value of column <$column_name>: ";
+    my $scalarValue = $c->get($columnFamily, $key, $column_name);
+    print " $scalarValue \n";
+
 }
 
 
+sub test
+{
+
+
+    Vinnix::Cassandra->connect();
+    print "Great! Connected to Cassandra\n";
+
+    print "Adding some new columns/values to a previous added key... \n";
+    Vinnix::Cassandra->save('jsmith');
+
+
+    print "Adding new columns/values to a new key... \n";
+    Vinnix::Cassandra->save('jsmith2');
+
+
+    print "Showing all columns/values of certain key... \n";
+    Vinnix::Cassandra->show_columns('jsmith');
+
+    print "Showing only one column of certain key... \n";
+    Vinnix::Cassandra->getColumnValue('jsmith','title');
+
+    print "Deleting a key that was previous added from another application... \n";
+    Vinnix::Cassandra->delete('jsmith');
+
+    print "Deleting a new key... \n";
+    Vinnix::Cassandra->delete('jsmith2');
+
+    print "After deleting, show columns/values of a previous added key... \n";
+    Vinnix::Cassandra->show_columns('jsmith');
+
+    print "After deleting, show columns/values of a new key... \n";
+    Vinnix::Cassandra->show_columns('jsmith2');
+
+
+
+
+
+}
+
+
+
 Vinnix::Cassandra->test();
+
 
 1;
