@@ -1,12 +1,17 @@
 #!/usr/local/bin/perl
 
+package Vinnix::Cassandra;
 
 use Cassandra::Lite;
 use Data::Dumper;
+use Moose;
 
 
-    $debug = 0;
+sub test
+{
 
+    my $debug = 0;
+    my $delete = 0;
     my $c = Cassandra::Lite->new(
                 server_name => 'localhost',      # optional, default to '127.0.0.1'
                 server_port => 9160,             # optional, default to 9160
@@ -40,3 +45,12 @@ use Data::Dumper;
     }
     print Dumper($hashRef) . " \n" if $debug;
     print "$hashRef->{first} \n";
+
+    # Remove it
+    $c->delete($columnFamily, $key) if $delete;
+}
+
+
+Vinnix::Cassandra->test();
+
+1;
