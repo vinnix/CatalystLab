@@ -25,6 +25,14 @@ requires 'Perl6::Junction';
 requires 'HTML::FormFu';
 requires 'Catalyst::Controller::HTML::FormFu';
 requires 'HTML::FormFu::Model::DBIC';
+requires 'Catalyst::Plugin::StatusMessage';
+requires 'Catalyst::Plugin::StackTrace';
+requires 'Catalyst::Authentication::Realm::SimpleDB';
+requires 'Catalyst::Controller::REST';
+requires 'MooseX::MarkAsMethods';
+requires 'MooseX::NonMoose';
+requires 'DBIx::Class::TimeStamp';
+requires 'DBIx::Class::PassphraseColumn';
 
 # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';

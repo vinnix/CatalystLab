@@ -2,7 +2,7 @@ package MyApp::Controller::Books;
 use Moose;
 use namespace::autoclean;
 
-BEGIN {extends 'Catalyst::Controller::HTML::Formu'; }
+BEGIN {extends 'Catalyst::Controller::HTML::FormFu'; }
 
 =head1 NAME
 
@@ -26,6 +26,108 @@ sub index :Path :Args(0) {
 
     $c->response->body('Matched MyApp::Controller::Books in Books.');
 }
+
+
+
+
+=head2 formfu_create
+    
+    Use HTML::FormFu to create a new book
+    
+=cut
+    
+sub formfu_create :Chained('base') :PathPart('formfu_create') :Args(0) :FormConfig {
+        my ($self, $c) = @_;
+    
+        # Get the form that the :FormConfig attribute saved in the stash
+        my $form = $c->stash->{form};
+    
+        # Check if the form has been submitted (vs. displaying the initial
+        # form) and if the data passed validation.  "submitted_and_valid"
+        # is shorthand for "$form->submitted && !$form->has_errors"
+        if ($form->submitted_and_valid) {
+            # Create a new book
+            my $book = $c->model('DB::Book')->new_result({});
+            # Save the form data for the book
+            $form->model->update($book);
+            # Set a status message for the user & return to books list
+            $c->response->redirect($c->uri_for($self->action_for('list'),
+                {mid => $c->set_status_msg("Book created")}));
+            $c->detach;
+        } else {
+            # Get the authors from the DB
+            my @author_objs = $c->model("DB::Author")->all();
+            # Create an array of arrayrefs where each arrayref is an author
+            my @authors;
+            foreach (sort {$a->last_name cmp $b->last_name} @author_objs) {
+                push(@authors, [$_->id, $_->last_name]);
+            }
+            # Get the select added by the config file
+            my $select = $form->get_element({type => 'Select'});
+            # Add the authors to it
+            $select->options(\@authors);
+        }
+    
+        # Set the template
+        $c->stash(template => 'books/formfu_create.tt2');
+}
+
+
+=head2 formfu_edit
+    
+    Use HTML::FormFu to update an existing book
+    
+=cut
+    
+sub formfu_edit :Chained('object') :PathPart('formfu_edit') :Args(0) 
+            :FormConfig('books/formfu_create.yml') {
+        my ($self, $c) = @_;
+    
+        # Get the specified book already saved by the 'object' method
+        my $book = $c->stash->{object};
+    
+        # Make sure we were able to get a book
+        unless ($book) {
+            # Set an error message for the user & return to books list
+            $c->response->redirect($c->uri_for($self->action_for('list'),
+                {mid => $c->set_error_msg("Invalid book -- Cannot edit")}));
+            $c->detach;
+        }
+    
+        # Get the form that the :FormConfig attribute saved in the stash
+        my $form = $c->stash->{form};
+    
+        # Check if the form has been submitted (vs. displaying the initial
+        # form) and if the data passed validation.  "submitted_and_valid"
+        # is shorthand for "$form->submitted && !$form->has_errors"
+        if ($form->submitted_and_valid) {
+            # Save the form data for the book
+            $form->model->update($book);
+            # Set a status message for the user
+            # Set a status message for the user & return to books list
+            $c->response->redirect($c->uri_for($self->action_for('list'),
+                {mid => $c->set_status_msg("Book edited")}));
+            $c->detach;
+        } else {
+            # Get the authors from the DB
+            my @author_objs = $c->model("DB::Author")->all();
+            # Create an array of arrayrefs where each arrayref is an author
+            my @authors;
+            foreach (sort {$a->last_name cmp $b->last_name} @author_objs) {
+                push(@authors, [$_->id, $_->last_name]);
+            }
+            # Get the select added by the config file
+            my $select = $form->get_element({type => 'Select'});
+            # Add the authors to it
+            $select->options(\@authors);
+            # Populate the form with existing values from DB
+            $form->model->default_values($book);
+        }
+    
+        # Set the template
+        $c->stash(template => 'books/formfu_create.tt2');
+}
+
 
 
 =head2 list

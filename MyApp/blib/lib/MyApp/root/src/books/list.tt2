@@ -37,6 +37,10 @@
           [% # Add a link to delete a book %]
           <a href="[%
             c.uri_for(c.controller.action_for('delete'), [book.id]) %]">Delete</a>
+          [% # Add a link to edit a book %]
+          <a href="[%
+            c.uri_for(c.controller.action_for('formfu_edit'), [book.id]) %]">Edit</a>
+
         </td>
       </tr>
     [% END -%]
