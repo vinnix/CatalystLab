@@ -9,6 +9,7 @@ use Module::Install::Catalyst; # Complain loudly if you don't have
 name 'MyApp';
 all_from 'lib/MyApp.pm';
 
+requires 'Test::WWW::Mechanize';
 requires 'Catalyst::Runtime' => '5.90009';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
