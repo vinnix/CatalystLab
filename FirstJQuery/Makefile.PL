@@ -9,10 +9,11 @@ use Module::Install::Catalyst; # Complain loudly if you don't have
 name 'FirstJQuery';
 all_from 'lib/FirstJQuery.pm';
 
-requires 'Catalyst::Runtime' => '5.90007';
+requires 'Catalyst::Runtime';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
+requires 'Catalyst::View::JSON"';
 requires 'Moose';
 requires 'namespace::autoclean';
 requires 'Config::General'; # This should reflect the config file format you've chosen
