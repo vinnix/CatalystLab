@@ -25,6 +25,7 @@ requires:
   Catalyst::Plugin::Static::Simple: '0'
   Catalyst::Runtime: '0'
   Config::General: '0'
+  HTML::FormHandler::Model::DBIC: '0'
   Moose: '0'
   namespace::autoclean: '0'
 version: '0.01'
