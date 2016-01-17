@@ -1,0 +1,20 @@
+    [% page_title %]
+    <br>                                                                                                                                                                                                                                           
+    <a href="[% c.uri_for( c.controller( 'ControlPanel::Post' ).action_for( 'edit' ) ) %]">NOVO</a><br><br>
+
+    [% PROCESS 'pagination.tt2' %]
+    <br>
+
+    [% WHILE ( item = results.next ) %]
+        id: [% item.id %], 
+            <a href="[% c.uri_for(c.controller( 'ControlPanel::Post' ).action_for( 'remove' ), item.id ) %]"> remover</a> | 
+            <a href="[% c.uri_for(c.controller( 'ControlPanel::Post' ).action_for( 'edit' ), item.id ) %]"> alterar</a> 
+        <br>
+        Titulo: [% item.titulo %] <br>
+        Mensagem: [% item.mensagem %] <br>
+        Link: [% item.link %] <br>
+        Por: [% item.user.email %] <br>
+    <br>--------------------------------------------------------------------------------------------------<br>
+    [% END %]
+
+    [% PROCESS 'pagination.tt2' %]

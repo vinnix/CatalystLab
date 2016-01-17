@@ -1,0 +1,9 @@
+<img src="/static/images/catalyst_logo.png"  style="height:50px;"> - Blog::Tutorial em Perl Catalyst<br><br>
+    
+[% IF c.user %] 
+        <span style="color: #FF0000;">loged in as: [% c.user.email %] | <a href="[% c.uri_for( c.controller( 'Authenticate' ).action_for( 'logout' ) ) %]">Logout</a></span><br><br>
+[% END %]
+
+[% IF c.flash.message != '' %]
+        <span style="#00FF00">[% c.flash.message %]</span>
+[% END %]

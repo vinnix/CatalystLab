@@ -1,0 +1,13 @@
+  BEM VINDO AO '[% titulo_blog %]'
+    <br><br>
+    Aqui voc&ecirc; poder&aacute; encontrar como criar suas p&aacute;ginas com este framework
+    <br>
+
+    <a href="/post">POSTS (v1) </a>
+    <br>
+
+    <a href="[% c.uri_for( c.controller( 'ControlPanel::Post' ).action_for( 'index' ) ) %]">POSTS...(v2)</a>
+    <br>
+
+    <a href="[% c.uri_for( c.controller( 'Authenticate' ).action_for( 'login' ) ) %]">login</a>                                    
+    <br>
