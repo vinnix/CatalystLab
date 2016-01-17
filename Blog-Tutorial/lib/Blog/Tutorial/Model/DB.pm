@@ -7,7 +7,8 @@ __PACKAGE__->config(
     schema_class => 'Blog::Tutorial::DB',
     
     connect_info => {
-        dsn => 'dbi:Pg:dbname=blog_tutorial',
+        #dsn => 'dbi:Pg:dbname=blog_tutorial',
+        dsn => 'dbi:Pg:dbname=blog_tutorial;host=localhost;port=5432',
         user => 'blog_user',
         password => 'blog_user123',
     }
