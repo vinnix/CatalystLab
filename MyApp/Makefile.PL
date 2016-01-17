@@ -12,7 +12,7 @@ all_from 'lib/MyApp.pm';
 
 requires 'HTTP::Cookies';
 requires 'Test::WWW::Mechanize';
-requires 'Catalyst::Runtime' => '5.90009';
+requires 'Catalyst::Runtime';
 requires 'Catalyst::ScriptRunner';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';

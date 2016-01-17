@@ -4,7 +4,7 @@
       "Vinícius Abrahão Bazana Schmidt"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Install version 1.01, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "Module::Install version 1.01, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -28,7 +28,7 @@
       },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.42"
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "runtime" : {
@@ -46,15 +46,19 @@
             "Catalyst::Plugin::StackTrace" : "0",
             "Catalyst::Plugin::Static::Simple" : "0",
             "Catalyst::Plugin::StatusMessage" : "0",
-            "Catalyst::Runtime" : "5.90009",
+            "Catalyst::Runtime" : "0",
+            "Catalyst::ScriptRunner" : "0",
             "Config::General" : "0",
+            "DBIx::Class::PassphraseColumn" : "0",
             "DBIx::Class::TimeStamp" : "0",
             "HTML::FormFu" : "0",
             "HTML::FormFu::Model::DBIC" : "0",
+            "HTTP::Cookies" : "0",
             "Moose" : "0",
             "MooseX::MarkAsMethods" : "0",
             "MooseX::NonMoose" : "0",
             "Perl6::Junction" : "0",
+            "Test::WWW::Mechanize" : "0",
             "namespace::autoclean" : "0"
          }
       }
