@@ -1,1 +1,11 @@
+
+
+To Install PERL Modules / dependencies
+
+$ perl Makefile.PL
+$ make 
+
+
 Run script/myapp_server.pl to test the application.
+
+$ ./script/myapp_server.pl 
