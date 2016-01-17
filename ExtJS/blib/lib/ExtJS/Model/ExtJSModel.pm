@@ -14,6 +14,7 @@ use base 'Catalyst::Model::DBIC::Schema';
 #    ],
 #);
 
+
 use Catalyst qw/ ConfigLoader /; # gives us __PACKAGE__->config->{'home'}
 use Config::Any::Perl; # to load .pl config files
 use Path::Class;
@@ -26,7 +27,7 @@ if ($@) # otherwise if called from outside Catalyst try manual load of model con
     'conf', 'extjs_model_local.pl' )->stringify;
   my $cfgpath2 = Path::Class::File->new( __PACKAGE__->config->{'home'},
     'conf', 'extjs_model.pl' )->stringify;
-  my $cfgpath = -r $cfgpath1 ? $cfgpath1 
+  my $cfgpath = -r $cfgpath1 ? $cfgpath1
               : -r $cfgpath2 ? $cfgpath2
               : die "cannot read $cfgpath1 or $cfgpath2";
   delete $INC{$cfgpath}; # workaround so older Config::Any::Perl will work when reloading config file
@@ -38,6 +39,12 @@ defined $cfg->{'Model::ExtJSModel'} || die "Catalyst config not found";
 
 # put model parameters into main configuration
 __PACKAGE__->config( $cfg->{'Model::ExtJSModel'} );
+
+
+
+
+
+
 
 
 =head1 NAME

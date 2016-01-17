@@ -1,7 +1,0 @@
-[% PROCESS site/header %]
-
-<div id="content" class="welcome">
-[% content %]
-</div>
-
-[% PROCESS site/footer %]

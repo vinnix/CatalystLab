@@ -1,7 +1,4 @@
-#!/opt/local/bin/perl
-
-eval 'exec /opt/local/bin/perl  -S $0 ${1+"$@"}'
-    if 0; # not running under some shell
+#!/usr/local/bin/perl
 # script/dump_bookings.pl
 # a really simple example of accessing a Catalyst application's Model
 # from an external script

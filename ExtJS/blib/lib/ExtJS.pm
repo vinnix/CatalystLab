@@ -13,7 +13,16 @@ use Catalyst::Runtime '5.80';
 # Static::Simple: will serve static files from the application's root 
 #                 directory
 
-use Catalyst qw/-Debug ConfigLoader::Multi Static::Simple/;
+use Catalyst qw/
+		-Debug 
+		ConfigLoader::Multi 
+		Static::Simple
+		StackTrace
+		Authentication
+		Session
+		Session::Store::File
+		Session::State::Cookie
+	/;
 
 use Data::Dump qw(dump);
 use Config::Any::Perl;
@@ -33,6 +42,18 @@ __PACKAGE__->config( name => 'ExtJS' );
 
 # this app's configuration is in conf/extjs.pl, conf/extjs_local.pl, conf/extjs_model.pl
 __PACKAGE__->config( file => __PACKAGE__->path_to('conf') );
+
+# Configure SimpleDB Authentication
+__PACKAGE__->config(
+      'Plugin::Authentication' => {
+          default => {
+              class           => 'SimpleDB',
+              user_model      => 'DB::User',
+              password_type   => 'self_check',
+          },
+      },
+);
+
 
 # Start the application
 __PACKAGE__->setup;
