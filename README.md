@@ -8,14 +8,17 @@
 
 * Install apache module
 
+```sh
  $ yum install mod_fcgid.x86_64    # 2.3.9-1.el6         @epel
 
- /etc/httpd/conf.d/catalyst.conf -> catalyst.conf.fcgid.orig
+ # /etc/httpd/conf.d/catalyst.conf -> catalyst.conf.fcgid.orig
  $ cat catalyst.conf.fcgid.orig
+``` 
 
 
 Apache configuration:
 
+```apache
 <VirtualHost prod-oradb.com.br:80>
     ServerName prod-oradb.com.br
     ServerAlias prod-oradb.com.br
@@ -59,5 +62,6 @@ Apache configuration:
     </Location>
 </VirtualHost>
 
+```
 
 
