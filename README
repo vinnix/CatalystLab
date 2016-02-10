@@ -1,9 +1,13 @@
-Some experiences with PERL Catalyst framework!
 
-See the MyApp to checkout about Catalyst::Intro exercises
+# CatalystLAb
 
 
-<pre>
+* Some experiences with PERL Catalyst framework!
+
+* See the MyApp to checkout about Catalyst::Intro exercises
+
+
+Apache configuration:
 
  $ yum install mod_fcgid.x86_64    # 2.3.9-1.el6         @epel
 
@@ -55,4 +59,3 @@ See the MyApp to checkout about Catalyst::Intro exercises
 
 
 
-</pre>
