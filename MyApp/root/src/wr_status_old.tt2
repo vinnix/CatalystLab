@@ -1,0 +1,12 @@
+[% IF no_wrapper %]
+	[% content %]
+[% ELSE %] 
+    [%# template.title or "My Catalyst App!" %]
+    [%# c.uri_for('/static/css/main.css') %]
+    [%## Your logo could go here -%]
+    [%# c.uri_for('/static/images/btn_88x31_powered.png') %]
+    [%# Insert the page title -%]
+    [%# template.title or site.title %]
+
+	[% content %]
+[% END %]

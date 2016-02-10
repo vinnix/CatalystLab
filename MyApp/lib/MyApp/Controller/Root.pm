@@ -68,6 +68,10 @@ sub auto :Private {
         if ($c->controller eq $c->controller('Login')) {
             return 1;
         }
+
+        if ($c->controller eq $c->controller('Status')) {
+            return 1;
+        }
     
         # If a user doesn't exist, force login
         if (!$c->user_exists) {
