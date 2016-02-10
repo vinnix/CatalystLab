@@ -1,11 +1,14 @@
 
 # CatalystLAb
 
+##Purpose/Objetive
 
-* Some experiences with PERL Catalyst framework!
+* Some experiences with [PERL] [Catalyst] framework!
 
 * See the MyApp to checkout about Catalyst::Intro exercises
 
+
+##Practical/Instructions
 * Install apache module
 
 ```sh
@@ -65,3 +68,10 @@ Apache configuration:
 ```
 
 
+
+
+**PERL ftw!**
+
+
+[Catalyst] http://www.catalystframework.org/
+[PERL] https://www.perl.org/
