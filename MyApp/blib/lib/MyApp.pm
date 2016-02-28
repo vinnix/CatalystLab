@@ -3,6 +3,12 @@ use Moose;
 use namespace::autoclean;
 
 use Catalyst::Runtime 5.90;
+use Devel::Dwarn;
+
+#use DBI;
+#use DBD::Oracle;
+use Carp::Always;
+
 
 # Set flags and add plugins for the application.
 #
@@ -22,12 +28,12 @@ use Catalyst qw/
     Static::Simple
     StackTrace
     Authentication
-		Authorization::Roles
+    Authorization::Roles
+    Authorization::ACL
     Session
     Session::Store::File
     Session::State::Cookie
-
-		StatusMessage
+    StatusMessage
 /;
 
 extends 'Catalyst';
@@ -42,6 +48,10 @@ our $VERSION = '0.01';
 # details given here can function as a default configuration,
 # with an external configuration file acting as an override for
 # local deployment.
+
+
+Dwarn \%ENV;
+
 
 __PACKAGE__->config(
     name => 'MyApp',
@@ -74,10 +84,30 @@ __PACKAGE__->config(
 
 
 
+# by default myapp.* will be loaded
+# you can specify a file if you'd like
+__PACKAGE__->config->{PROD_PATH} = '/var/www/catalyst/MyApp';
+
+#__PACKAGE__->config( 'Plugin::ConfigLoader' => { file =>  'database.yaml' } );
+
+__PACKAGE__->config( 'Plugin::ConfigLoader' => { file =>  '/var/www/catalyst/MyApp/database.yaml' } );
 
 
 # Start the application
 __PACKAGE__->setup();
+
+
+## ACL to allow monitoring
+#__PACKAGE__->allow_access_if(
+#                "/status/ew",
+#                sub {    my $boolean = 1; return $boolean ; },
+#        );
+#
+
+#__PACKAGE__->allow_access( "/status/ew");
+
+
+
 
 
 =head1 NAME

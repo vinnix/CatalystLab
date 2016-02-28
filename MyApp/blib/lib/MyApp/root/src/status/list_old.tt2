@@ -1,0 +1,15 @@
+[% # This is a TT comment. -%]
+[% # status %] 
+    [%- # Provide a title -%]
+    [% META title = 'EW Exec Status List' -%]
+    
+    [% # Note That the '-' at the beginning or end of TT code  -%]
+    [% # "chomps" the whitespace/newline at that end of the    -%]
+    [% # output (use View Source in browser to see the effect) -%]
+    
+    [% # Some basic HTML with a loop to display books -%]
+
+    [% FOREACH stat IN status -%]
+        [% stat %]
+        [% #stat.status %]
+    [% END -%]

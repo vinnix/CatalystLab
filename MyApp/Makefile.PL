@@ -37,7 +37,8 @@ requires 'MooseX::MarkAsMethods';
 requires 'MooseX::NonMoose';
 requires 'DBIx::Class::TimeStamp';
 requires 'DBIx::Class::PassphraseColumn';
-
+requires 'Carp::Always';
+requires 'Catalyst::Plugin::Authorization::ACL';
 # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';
 catalyst;

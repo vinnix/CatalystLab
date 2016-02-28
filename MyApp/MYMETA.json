@@ -4,7 +4,7 @@
       "Vinícius Abrahão Bazana Schmidt"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Install version 1.01, CPAN::Meta::Converter version 2.150001",
+   "generated_by" : "Module::Install version 1.01, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],
@@ -33,11 +33,13 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp::Always" : "0",
             "Catalyst::Action::RenderView" : "0",
             "Catalyst::Authentication::Realm::SimpleDB" : "0",
             "Catalyst::Controller::HTML::FormFu" : "0",
             "Catalyst::Controller::REST" : "0",
             "Catalyst::Plugin::Authentication" : "0",
+            "Catalyst::Plugin::Authorization::ACL" : "0",
             "Catalyst::Plugin::Authorization::Roles" : "0",
             "Catalyst::Plugin::ConfigLoader" : "0",
             "Catalyst::Plugin::Session" : "0",
@@ -69,5 +71,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.01"
+   "version" : "0.01",
+   "x_serialization_backend" : "JSON::PP version 2.27300"
 }

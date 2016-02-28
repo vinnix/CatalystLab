@@ -66,19 +66,88 @@
 .\}
 .\" ========================================================================
 .\"
-.IX Title "MyApp::Schema::ResultSet::Book 3"
-.TH MyApp::Schema::ResultSet::Book 3 "2016-02-28" "perl v5.10.1" "User Contributed Perl Documentation"
+.IX Title "MyApp::Controller::Status 3"
+.TH MyApp::Controller::Status 3 "2016-02-28" "perl v5.10.1" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
 .nh
-.SS "created_after"
-.IX Subsection "created_after"
+.SH "NAME"
+MyApp::Controller::Books \- Catalyst Controller
+.SH "DESCRIPTION"
+.IX Header "DESCRIPTION"
+Catalyst Controller.
+.SH "METHODS"
+.IX Header "METHODS"
+.SS "index"
+.IX Subsection "index"
+.SS "formfu_create"
+.IX Subsection "formfu_create"
 .Vb 1
-\&  A predefined search for recently added books
+\&    Use HTML::FormFu to create a new book
 .Ve
-.SS "title_like"
-.IX Subsection "title_like"
+.SS "formfu_edit"
+.IX Subsection "formfu_edit"
 .Vb 1
-\&    A predefined search for books with a \*(AqLIKE\*(Aq search in the string
+\&    Use HTML::FormFu to update an existing book
 .Ve
+.SS "list"
+.IX Subsection "list"
+.Vb 1
+\&    Fetch all book objects and pass to books/list.tt2 in stash to be displayed
+.Ve
+.SS "url_create"
+.IX Subsection "url_create"
+.Vb 2
+\&    Create a book with the supplied title and rating,
+\&    with manual authorization
+.Ve
+.SS "base"
+.IX Subsection "base"
+.Vb 1
+\&    Can place common logic to start chained dispatch here
+.Ve
+.SS "form_create"
+.IX Subsection "form_create"
+.Vb 1
+\&    Display form to collect information for book to create
+.Ve
+.SS "form_create_do"
+.IX Subsection "form_create_do"
+.Vb 1
+\&    Take information from form and add to database
+.Ve
+.SS "object"
+.IX Subsection "object"
+.Vb 2
+\&    Fetch the specified book object based on the book ID and store
+\&    it in the stash
+.Ve
+.SS "delete"
+.IX Subsection "delete"
+.Vb 1
+\&    Delete a book
+.Ve
+.SS "list_recent"
+.IX Subsection "list_recent"
+.Vb 1
+\&    List recently created books
+.Ve
+.SS "list_recent_tcp"
+.IX Subsection "list_recent_tcp"
+.Vb 1
+\&    List recently created books
+.Ve
+.SH "AUTHOR"
+.IX Header "AUTHOR"
+Vinícius Abrahão Bazana Schmidt
+.SH "LICENSE"
+.IX Header "LICENSE"
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+.SH "POD ERRORS"
+.IX Header "POD ERRORS"
+Hey! \fBThe above document had some coding errors, which are explained below:\fR
+.IP "Around line 400:" 4
+.IX Item "Around line 400:"
+Non-ASCII character seen before =encoding in 'Vinícius'. Assuming \s-1UTF\-8\s0
