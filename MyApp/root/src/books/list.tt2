@@ -8,8 +8,8 @@
     [% # output (use View Source in browser to see the effect) -%]
     
     [% # Some basic HTML with a loop to display books -%]
-    <table>
-    <tr><th>Title</th><th>Rating</th><th>Author(s)</th><th>Links</th></tr>
+    <table class="table">
+    <tr><th>Title</th><th>Rating</th><th>Author(s)</th><th>Delete</th><th>Edit</th></tr>
     [% # Display each book in a table row %]
     [% FOREACH book IN books -%]
       <tr>
@@ -35,12 +35,11 @@
         </td>
         <td>
           [% # Add a link to delete a book %]
-          <a href="[%
-            c.uri_for(c.controller.action_for('delete'), [book.id]) %]">Delete</a>
+          <a href="[% c.uri_for(c.controller.action_for('delete'), [book.id]) %]">Delete</a>
+        </td>
+        <td>
           [% # Add a link to edit a book %]
-          <a href="[%
-            c.uri_for(c.controller.action_for('formfu_edit'), [book.id]) %]">Edit</a>
-
+          <a href="[% c.uri_for(c.controller.action_for('formfu_edit'), [book.id]) %]">Edit</a>
         </td>
       </tr>
     [% END -%]
