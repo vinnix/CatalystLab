@@ -73,5 +73,5 @@ Apache configuration:
 **PERL ftw!**
 
 
-[Catalyst] http://www.catalystframework.org/
+[Catalyst] https://metacpan.org/dist/Catalyst-Manual/view/lib/Catalyst/Manual/Tutorial.pod
 [PERL] https://www.perl.org/
