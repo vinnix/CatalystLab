@@ -1,7 +1,7 @@
 # This Makefile is for the MyApp extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 7.1 (Revision: 71000) from the contents of
+# 7.60 (Revision: 76000) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -38,22 +38,22 @@
 AR = ar
 CC = gcc
 CCCDLFLAGS = -fPIC
-CCDLFLAGS = -Wl,-E -Wl,-rpath,/usr/lib64/perl5/CORE
+CCDLFLAGS = -Wl,--enable-new-dtags -Wl,-z,relro -Wl,--as-needed -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 
 DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
 LD = gcc
-LDDLFLAGS = -shared -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic
-LDFLAGS =  -fstack-protector
-LIBC = 
+LDDLFLAGS = -lpthread -shared -Wl,-z,relro -Wl,--as-needed -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -L/usr/local/lib -fstack-protector-strong
+LDFLAGS = -Wl,-z,relro -Wl,--as-needed -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -fstack-protector-strong -L/usr/local/lib
+LIBC = /lib/../lib64/libc.so.6
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
-OSVERS = 2.6.32-220.el6.x86_64
+OSVERS = 4.18.0-477.21.1.el8_8.x86_64
 RANLIB = :
-SITELIBEXP = /usr/local/share/perl5
-SITEARCHEXP = /usr/local/lib64/perl5
+SITELIBEXP = /usr/local/share/perl5/5.32
+SITEARCHEXP = /usr/local/lib64/perl5/5.32
 SO = so
 VENDORARCHEXP = /usr/lib64/perl5/vendor_perl
 VENDORLIBEXP = /usr/share/perl5/vendor_perl
@@ -80,47 +80,47 @@ INST_MAN1DIR = blib/man1
 INST_MAN3DIR = blib/man3
 MAN1EXT = 1
 MAN3EXT = 3pm
+MAN1SECTION = 1
+MAN3SECTION = 3
 INSTALLDIRS = site
+INSTALL_BASE = /home/vinnix/perl5
 DESTDIR = 
-PREFIX = $(SITEPREFIX)
-PERLPREFIX = /usr
-SITEPREFIX = /usr/local
-VENDORPREFIX = /usr
-INSTALLPRIVLIB = /usr/share/perl5
+PREFIX = $(INSTALL_BASE)
+INSTALLPRIVLIB = $(INSTALL_BASE)/lib/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /usr/local/share/perl5
+INSTALLSITELIB = $(INSTALL_BASE)/lib/perl5
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = /usr/share/perl5/vendor_perl
+INSTALLVENDORLIB = $(INSTALL_BASE)/lib/perl5
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /usr/lib64/perl5
+INSTALLARCHLIB = $(INSTALL_BASE)/lib/perl5/x86_64-linux-thread-multi
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /usr/local/lib64/perl5
+INSTALLSITEARCH = $(INSTALL_BASE)/lib/perl5/x86_64-linux-thread-multi
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = /usr/lib64/perl5/vendor_perl
+INSTALLVENDORARCH = $(INSTALL_BASE)/lib/perl5/x86_64-linux-thread-multi
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /usr/bin
+INSTALLBIN = $(INSTALL_BASE)/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /usr/local/bin
+INSTALLSITEBIN = $(INSTALL_BASE)/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = /usr/bin
+INSTALLVENDORBIN = $(INSTALL_BASE)/bin
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /usr/bin
+INSTALLSCRIPT = $(INSTALL_BASE)/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = /usr/local/bin
+INSTALLSITESCRIPT = $(INSTALL_BASE)/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = /usr/bin
+INSTALLVENDORSCRIPT = $(INSTALL_BASE)/bin
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = /usr/share/man/man1
+INSTALLMAN1DIR = $(INSTALL_BASE)/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /usr/local/share/man/man1
+INSTALLSITEMAN1DIR = $(INSTALL_BASE)/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /usr/share/man/man1
+INSTALLVENDORMAN1DIR = $(INSTALL_BASE)/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = /usr/share/man/man3
+INSTALLMAN3DIR = $(INSTALL_BASE)/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /usr/local/share/man/man3
+INSTALLSITEMAN3DIR = $(INSTALL_BASE)/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /usr/share/man/man3
+INSTALLVENDORMAN3DIR = $(INSTALL_BASE)/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB =
 PERL_ARCHLIB = /usr/lib64/perl5
@@ -146,9 +146,9 @@ PERM_DIR = 755
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /usr/local/share/perl5/ExtUtils/MakeMaker.pm
-MM_VERSION  = 7.1
-MM_REVISION = 71000
+MAKEMAKER   = /usr/share/perl5/vendor_perl/ExtUtils/MakeMaker.pm
+MM_VERSION  = 7.60
+MM_REVISION = 76000
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -239,58 +239,9 @@ TO_INST_PM = lib/MyApp.pm \
 	lib/MyApp/View/STATUS.pm \
 	set_hashed_passwords.pl
 
-PM_TO_BLIB = lib/MyApp.pm \
-	blib/lib/MyApp.pm \
-	lib/MyApp/Controller/AJAX.pm \
-	blib/lib/MyApp/Controller/AJAX.pm \
-	lib/MyApp/Controller/API.pm \
-	blib/lib/MyApp/Controller/API.pm \
-	lib/MyApp/Controller/Books.pm \
-	blib/lib/MyApp/Controller/Books.pm \
-	lib/MyApp/Controller/Login.pm \
-	blib/lib/MyApp/Controller/Login.pm \
-	lib/MyApp/Controller/Logout.pm \
-	blib/lib/MyApp/Controller/Logout.pm \
-	lib/MyApp/Controller/Root.pm \
-	blib/lib/MyApp/Controller/Root.pm \
-	lib/MyApp/Controller/Status.pm \
-	blib/lib/MyApp/Controller/Status.pm \
-	lib/MyApp/Model/DB.pm \
-	blib/lib/MyApp/Model/DB.pm \
-	lib/MyApp/Model/DB.pm.new \
-	blib/lib/MyApp/Model/DB.pm.new \
-	lib/MyApp/Model/DB.pm.ora \
-	blib/lib/MyApp/Model/DB.pm.ora \
-	lib/MyApp/Schema.pm \
-	blib/lib/MyApp/Schema.pm \
-	lib/MyApp/Schema/Result/Author.pm \
-	blib/lib/MyApp/Schema/Result/Author.pm \
-	lib/MyApp/Schema/Result/Book.pm \
-	blib/lib/MyApp/Schema/Result/Book.pm \
-	lib/MyApp/Schema/Result/BookAuthor.pm \
-	blib/lib/MyApp/Schema/Result/BookAuthor.pm \
-	lib/MyApp/Schema/Result/Role.pm \
-	blib/lib/MyApp/Schema/Result/Role.pm \
-	lib/MyApp/Schema/Result/Status.pm \
-	blib/lib/MyApp/Schema/Result/Status.pm \
-	lib/MyApp/Schema/Result/User.pm \
-	blib/lib/MyApp/Schema/Result/User.pm \
-	lib/MyApp/Schema/Result/UserRole.pm \
-	blib/lib/MyApp/Schema/Result/UserRole.pm \
-	lib/MyApp/Schema/ResultSet/Book.pm \
-	blib/lib/MyApp/Schema/ResultSet/Book.pm \
-	lib/MyApp/Schema/ResultSet/Status.pm \
-	blib/lib/MyApp/Schema/ResultSet/Status.pm \
-	lib/MyApp/View/HTML.pm \
-	blib/lib/MyApp/View/HTML.pm \
-	lib/MyApp/View/STATUS.pm \
-	blib/lib/MyApp/View/STATUS.pm \
-	set_hashed_passwords.pl \
-	$(INST_LIB)/set_hashed_passwords.pl
-
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 7.1
+MM_Unix_VERSION = 7.60
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
@@ -381,13 +332,16 @@ DISTVNAME = MyApp-0.01
 
 PASTHRU = LIBPERL_A="$(LIBPERL_A)"\
 	LINKTYPE="$(LINKTYPE)"\
-	PREFIX="$(PREFIX)"
+	PREFIX="$(PREFIX)"\
+	INSTALL_BASE="$(INSTALL_BASE)"\
+	PASTHRU_DEFINE='$(DEFINE) $(PASTHRU_DEFINE)'\
+	PASTHRU_INC='$(INC) $(PASTHRU_INC)'
 
 
 # --- MakeMaker special_targets section:
 .SUFFIXES : .xs .c .C .cpp .i .s .cxx .cc $(OBJ_EXT)
 
-.PHONY: all config static dynamic test linkext manifest blibdirs clean realclean disttest distdir
+.PHONY: all config static dynamic test linkext manifest blibdirs clean realclean disttest distdir pure_all subdirs clean_subdirs makemakerdflt manifypods realclean_subdirs subdirs_dynamic subdirs_pure_nolink subdirs_static subdirs-test_dynamic subdirs-test_static test_dynamic test_static
 
 
 
@@ -403,7 +357,6 @@ PASTHRU = LIBPERL_A="$(LIBPERL_A)"\
 # --- MakeMaker top_targets section:
 all :: pure_all manifypods
 	$(NOECHO) $(NOOP)
-
 
 pure_all :: config pm_to_blib subdirs linkext
 	$(NOECHO) $(NOOP)
@@ -470,7 +423,7 @@ $(INST_MAN3DIR)$(DFSEP).exists :: Makefile.PL
 
 # --- MakeMaker linkext section:
 
-linkext :: $(LINKTYPE)
+linkext :: dynamic
 	$(NOECHO) $(NOOP)
 
 
@@ -484,7 +437,7 @@ BOOTSTRAP =
 
 # --- MakeMaker dynamic section:
 
-dynamic :: $(FIRST_MAKEFILE) $(BOOTSTRAP) $(INST_DYNAMIC)
+dynamic :: $(FIRST_MAKEFILE) config $(INST_BOOT) $(INST_DYNAMIC)
 	$(NOECHO) $(NOOP)
 
 
@@ -508,7 +461,7 @@ POD2MAN_EXE = $(PERLRUN) "-MExtUtils::Command::MM" -e pod2man "--"
 POD2MAN = $(POD2MAN_EXE)
 
 
-manifypods : pure_all  \
+manifypods : pure_all config  \
 	lib/MyApp.pm \
 	lib/MyApp/Controller/Books.pm \
 	lib/MyApp/Controller/Login.pm \
@@ -531,13 +484,13 @@ manifypods : pure_all  \
 	script/myapp_fastcgi.pl \
 	script/myapp_server.pl \
 	script/myapp_test.pl
-	$(NOECHO) $(POD2MAN) --section=1 --perm_rw=$(PERM_RW) -u \
+	$(NOECHO) $(POD2MAN) --section=$(MAN1SECTION) --perm_rw=$(PERM_RW) -u \
 	  script/myapp_cgi.pl $(INST_MAN1DIR)/myapp_cgi.pl.$(MAN1EXT) \
 	  script/myapp_create.pl $(INST_MAN1DIR)/myapp_create.pl.$(MAN1EXT) \
 	  script/myapp_fastcgi.pl $(INST_MAN1DIR)/myapp_fastcgi.pl.$(MAN1EXT) \
 	  script/myapp_server.pl $(INST_MAN1DIR)/myapp_server.pl.$(MAN1EXT) \
 	  script/myapp_test.pl $(INST_MAN1DIR)/myapp_test.pl.$(MAN1EXT) 
-	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) -u \
+	$(NOECHO) $(POD2MAN) --section=$(MAN3SECTION) --perm_rw=$(PERM_RW) -u \
 	  lib/MyApp.pm $(INST_MAN3DIR)/MyApp.$(MAN3EXT) \
 	  lib/MyApp/Controller/Books.pm $(INST_MAN3DIR)/MyApp::Controller::Books.$(MAN3EXT) \
 	  lib/MyApp/Controller/Login.pm $(INST_MAN3DIR)/MyApp::Controller::Login.$(MAN3EXT) \
@@ -566,26 +519,14 @@ manifypods : pure_all  \
 
 EXE_FILES = script/myapp_cgi.pl script/myapp_create.pl script/myapp_fastcgi.pl script/myapp_server.pl script/myapp_test.pl
 
-pure_all :: $(INST_SCRIPT)/myapp_server.pl $(INST_SCRIPT)/myapp_create.pl $(INST_SCRIPT)/myapp_cgi.pl $(INST_SCRIPT)/myapp_fastcgi.pl $(INST_SCRIPT)/myapp_test.pl
+pure_all :: $(INST_SCRIPT)/myapp_cgi.pl $(INST_SCRIPT)/myapp_create.pl $(INST_SCRIPT)/myapp_fastcgi.pl $(INST_SCRIPT)/myapp_server.pl $(INST_SCRIPT)/myapp_test.pl
 	$(NOECHO) $(NOOP)
 
 realclean ::
 	$(RM_F) \
-	  $(INST_SCRIPT)/myapp_server.pl $(INST_SCRIPT)/myapp_create.pl \
-	  $(INST_SCRIPT)/myapp_cgi.pl $(INST_SCRIPT)/myapp_fastcgi.pl \
+	  $(INST_SCRIPT)/myapp_cgi.pl $(INST_SCRIPT)/myapp_create.pl \
+	  $(INST_SCRIPT)/myapp_fastcgi.pl $(INST_SCRIPT)/myapp_server.pl \
 	  $(INST_SCRIPT)/myapp_test.pl 
-
-$(INST_SCRIPT)/myapp_server.pl : script/myapp_server.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
-	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_server.pl
-	$(CP) script/myapp_server.pl $(INST_SCRIPT)/myapp_server.pl
-	$(FIXIN) $(INST_SCRIPT)/myapp_server.pl
-	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/myapp_server.pl
-
-$(INST_SCRIPT)/myapp_create.pl : script/myapp_create.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
-	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_create.pl
-	$(CP) script/myapp_create.pl $(INST_SCRIPT)/myapp_create.pl
-	$(FIXIN) $(INST_SCRIPT)/myapp_create.pl
-	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/myapp_create.pl
 
 $(INST_SCRIPT)/myapp_cgi.pl : script/myapp_cgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_cgi.pl
@@ -593,11 +534,23 @@ $(INST_SCRIPT)/myapp_cgi.pl : script/myapp_cgi.pl $(FIRST_MAKEFILE) $(INST_SCRIP
 	$(FIXIN) $(INST_SCRIPT)/myapp_cgi.pl
 	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/myapp_cgi.pl
 
+$(INST_SCRIPT)/myapp_create.pl : script/myapp_create.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_create.pl
+	$(CP) script/myapp_create.pl $(INST_SCRIPT)/myapp_create.pl
+	$(FIXIN) $(INST_SCRIPT)/myapp_create.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/myapp_create.pl
+
 $(INST_SCRIPT)/myapp_fastcgi.pl : script/myapp_fastcgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_fastcgi.pl
 	$(CP) script/myapp_fastcgi.pl $(INST_SCRIPT)/myapp_fastcgi.pl
 	$(FIXIN) $(INST_SCRIPT)/myapp_fastcgi.pl
 	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/myapp_fastcgi.pl
+
+$(INST_SCRIPT)/myapp_server.pl : script/myapp_server.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_server.pl
+	$(CP) script/myapp_server.pl $(INST_SCRIPT)/myapp_server.pl
+	$(FIXIN) $(INST_SCRIPT)/myapp_server.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/myapp_server.pl
 
 $(INST_SCRIPT)/myapp_test.pl : script/myapp_test.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/myapp_test.pl
@@ -646,17 +599,18 @@ clean :: clean_subdirs
 
 
 # --- MakeMaker realclean_subdirs section:
-realclean_subdirs :
+# so clean is forced to complete before realclean_subdirs runs
+realclean_subdirs : clean
 	$(NOECHO) $(NOOP)
 
 
 # --- MakeMaker realclean section:
 # Delete temporary files (via clean) and also delete dist files
-realclean purge ::  clean realclean_subdirs
+realclean purge :: realclean_subdirs
 	- $(RM_F) \
-	  $(MAKEFILE_OLD) $(FIRST_MAKEFILE) 
+	  $(FIRST_MAKEFILE) $(MAKEFILE_OLD) 
 	- $(RM_RF) \
-	  MYMETA.yml $(DISTVNAME) 
+	  $(DISTVNAME) MYMETA.yml 
 
 
 # --- MakeMaker metafile section:
@@ -759,17 +713,17 @@ ci :
 distmeta : create_distdir metafile
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -e q{META.yml};' \
 	  -e 'eval { maniadd({q{META.yml} => q{Module YAML meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.yml to MANIFEST: $$$${'\''@'\''}\n"' --
+	  -e '    or die "Could not add META.yml to MANIFEST: $${'\''@'\''}"' --
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'exit unless -f q{META.json};' \
 	  -e 'eval { maniadd({q{META.json} => q{Module JSON meta-data (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add META.json to MANIFEST: $$$${'\''@'\''}\n"' --
+	  -e '    or die "Could not add META.json to MANIFEST: $${'\''@'\''}"' --
 
 
 
 # --- MakeMaker distsignature section:
 distsignature : distmeta
 	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) }' \
-	  -e '    or print "Could not add SIGNATURE to MANIFEST: $$$${'\''@'\''}\n"' --
+	  -e '    or die "Could not add SIGNATURE to MANIFEST: $${'\''@'\''}"' --
 	$(NOECHO) cd $(DISTVNAME) && $(TOUCH) SIGNATURE
 	cd $(DISTVNAME) && cpansign -s
 
@@ -845,7 +799,7 @@ doc_perl_install :: all
 	-$(NOECHO) $(MKPATH) "$(DESTINSTALLARCHLIB)"
 	-$(NOECHO) $(DOC_INSTALL) \
 		"Module" "$(NAME)" \
-		"installed into" $(INSTALLPRIVLIB) \
+		"installed into" "$(INSTALLPRIVLIB)" \
 		LINKTYPE "$(LINKTYPE)" \
 		VERSION "$(VERSION)" \
 		EXE_FILES "$(EXE_FILES)" \
@@ -856,7 +810,7 @@ doc_site_install :: all
 	-$(NOECHO) $(MKPATH) "$(DESTINSTALLARCHLIB)"
 	-$(NOECHO) $(DOC_INSTALL) \
 		"Module" "$(NAME)" \
-		"installed into" $(INSTALLSITELIB) \
+		"installed into" "$(INSTALLSITELIB)" \
 		LINKTYPE "$(LINKTYPE)" \
 		VERSION "$(VERSION)" \
 		EXE_FILES "$(EXE_FILES)" \
@@ -867,7 +821,7 @@ doc_vendor_install :: all
 	-$(NOECHO) $(MKPATH) "$(DESTINSTALLARCHLIB)"
 	-$(NOECHO) $(DOC_INSTALL) \
 		"Module" "$(NAME)" \
-		"installed into" $(INSTALLVENDORLIB) \
+		"installed into" "$(INSTALLVENDORLIB)" \
 		LINKTYPE "$(LINKTYPE)" \
 		VERSION "$(VERSION)" \
 		EXE_FILES "$(EXE_FILES)" \
@@ -917,11 +871,12 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
 FULLPERL      = "/usr/bin/perl"
+MAP_PERLINC   = "-Iblib/arch" "-Iblib/lib" "-I/usr/lib64/perl5" "-I/usr/share/perl5"
 
-$(MAP_TARGET) :: static $(MAKE_APERL_FILE)
+$(MAP_TARGET) :: $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
 
-$(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
+$(MAKE_APERL_FILE) : static $(FIRST_MAKEFILE) pm_to_blib
 	$(NOECHO) $(ECHO) Writing \"$(MAKE_APERL_FILE)\" for this $(MAP_TARGET)
 	$(NOECHO) $(PERLRUNINST) \
 		Makefile.PL DIR="" \
@@ -930,7 +885,6 @@ $(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
 
 
 # --- MakeMaker test section:
-
 TEST_VERBOSE=0
 TEST_TYPE=test_$(LINKTYPE)
 TEST_FILE = test.pl
@@ -938,99 +892,119 @@ TEST_FILES = t/01app.t t/02pod.t t/03podcoverage.t t/controller_Books.t t/contro
 TESTDB_SW = -d
 
 testdb :: testdb_$(LINKTYPE)
-
-test :: $(TEST_TYPE) subdirs-test
-
-subdirs-test ::
 	$(NOECHO) $(NOOP)
 
+test :: $(TEST_TYPE)
+	$(NOECHO) $(NOOP)
 
-test_dynamic :: pure_all
+# Occasionally we may face this degenerate target:
+test_ : test_dynamic
+	$(NOECHO) $(NOOP)
+
+subdirs-test_dynamic :: dynamic pure_all
+
+test_dynamic :: subdirs-test_dynamic
 	PERL_DL_NONLAZY=1 $(FULLPERLRUN) "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness($(TEST_VERBOSE), 'inc', '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
 
-testdb_dynamic :: pure_all
+testdb_dynamic :: dynamic pure_all
 	PERL_DL_NONLAZY=1 $(FULLPERLRUN) $(TESTDB_SW) "-Iinc" "-I$(INST_LIB)" "-I$(INST_ARCHLIB)" $(TEST_FILE)
 
-test_ : test_dynamic
+subdirs-test_static :: static pure_all
 
-test_static :: test_dynamic
-testdb_static :: testdb_dynamic
+test_static :: subdirs-test_static
+	PERL_DL_NONLAZY=1 $(FULLPERLRUN) "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness($(TEST_VERBOSE), '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
+
+testdb_static :: static pure_all
+	PERL_DL_NONLAZY=1 $(FULLPERLRUN) $(TESTDB_SW) "-Iinc" "-I$(INST_LIB)" "-I$(INST_ARCHLIB)" $(TEST_FILE)
+
 
 
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="$(VERSION)">' > $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT>Catalyst based application</ABSTRACT>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <AUTHOR>VinÃ­cius AbrahÃ£o Bazana Schmidt</AUTHOR>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Carp::Always" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Action::RenderView" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Authentication::Realm::SimpleDB" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Controller::HTML::FormFu" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Controller::REST" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authentication" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authorization::ACL" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authorization::Roles" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::ConfigLoader" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Session" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Session::State::Cookie" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Session::Store::File" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::StackTrace" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Static::Simple" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::StatusMessage" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Runtime" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::ScriptRunner" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Config::General" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBIx::Class::PassphraseColumn" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBIx::Class::TimeStamp" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="HTML::FormFu" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="HTML::FormFu::Model::DBIC" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="HTTP::Cookies" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Moose::" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="MooseX::MarkAsMethods" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="MooseX::NonMoose" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Perl6::Junction" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::WWW::Mechanize" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="namespace::autoclean" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-thread-multi-5.10" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="MyApp" VERSION="0.01">' > MyApp.ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT>Catalyst based application</ABSTRACT>' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '    <AUTHOR>VinÃ­cius AbrahÃ£o Bazana Schmidt</AUTHOR>' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Carp::Always" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Action::RenderView" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Authentication::Realm::SimpleDB" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Controller::HTML::FormFu" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Controller::REST" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authentication" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authorization::ACL" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Authorization::Roles" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::ConfigLoader" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Session" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Session::State::Cookie" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Session::Store::File" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::StackTrace" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Static::Simple" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::StatusMessage" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Runtime" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::ScriptRunner" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Config::General" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBIx::Class::PassphraseColumn" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DBIx::Class::TimeStamp" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="HTML::FormFu" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="HTML::FormFu::Model::DBIC" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="HTTP::Cookies" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Moose::" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="MooseX::MarkAsMethods" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="MooseX::NonMoose" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Perl6::Junction" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::WWW::Mechanize" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="namespace::autoclean" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-thread-multi-5.32" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> MyApp.ppd
+	$(NOECHO) $(ECHO) '</SOFTPKG>' >> MyApp.ppd
 
 
 # --- MakeMaker pm_to_blib section:
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  lib/MyApp.pm blib/lib/MyApp.pm \
-	  lib/MyApp/Controller/AJAX.pm blib/lib/MyApp/Controller/AJAX.pm \
-	  lib/MyApp/Controller/API.pm blib/lib/MyApp/Controller/API.pm \
-	  lib/MyApp/Controller/Books.pm blib/lib/MyApp/Controller/Books.pm \
-	  lib/MyApp/Controller/Login.pm blib/lib/MyApp/Controller/Login.pm \
-	  lib/MyApp/Controller/Logout.pm blib/lib/MyApp/Controller/Logout.pm \
-	  lib/MyApp/Controller/Root.pm blib/lib/MyApp/Controller/Root.pm \
-	  lib/MyApp/Controller/Status.pm blib/lib/MyApp/Controller/Status.pm \
-	  lib/MyApp/Model/DB.pm blib/lib/MyApp/Model/DB.pm \
-	  lib/MyApp/Model/DB.pm.new blib/lib/MyApp/Model/DB.pm.new \
-	  lib/MyApp/Model/DB.pm.ora blib/lib/MyApp/Model/DB.pm.ora \
-	  lib/MyApp/Schema.pm blib/lib/MyApp/Schema.pm \
-	  lib/MyApp/Schema/Result/Author.pm blib/lib/MyApp/Schema/Result/Author.pm \
-	  lib/MyApp/Schema/Result/Book.pm blib/lib/MyApp/Schema/Result/Book.pm \
-	  lib/MyApp/Schema/Result/BookAuthor.pm blib/lib/MyApp/Schema/Result/BookAuthor.pm \
-	  lib/MyApp/Schema/Result/Role.pm blib/lib/MyApp/Schema/Result/Role.pm \
-	  lib/MyApp/Schema/Result/Status.pm blib/lib/MyApp/Schema/Result/Status.pm \
-	  lib/MyApp/Schema/Result/User.pm blib/lib/MyApp/Schema/Result/User.pm \
-	  lib/MyApp/Schema/Result/UserRole.pm blib/lib/MyApp/Schema/Result/UserRole.pm \
-	  lib/MyApp/Schema/ResultSet/Book.pm blib/lib/MyApp/Schema/ResultSet/Book.pm \
-	  lib/MyApp/Schema/ResultSet/Status.pm blib/lib/MyApp/Schema/ResultSet/Status.pm \
-	  lib/MyApp/View/HTML.pm blib/lib/MyApp/View/HTML.pm \
-	  lib/MyApp/View/STATUS.pm blib/lib/MyApp/View/STATUS.pm \
-	  set_hashed_passwords.pl $(INST_LIB)/set_hashed_passwords.pl 
+	  'lib/MyApp.pm' 'blib/lib/MyApp.pm' \
+	  'lib/MyApp/Controller/AJAX.pm' 'blib/lib/MyApp/Controller/AJAX.pm' \
+	  'lib/MyApp/Controller/API.pm' 'blib/lib/MyApp/Controller/API.pm' \
+	  'lib/MyApp/Controller/Books.pm' 'blib/lib/MyApp/Controller/Books.pm' \
+	  'lib/MyApp/Controller/Login.pm' 'blib/lib/MyApp/Controller/Login.pm' \
+	  'lib/MyApp/Controller/Logout.pm' 'blib/lib/MyApp/Controller/Logout.pm' \
+	  'lib/MyApp/Controller/Root.pm' 'blib/lib/MyApp/Controller/Root.pm' \
+	  'lib/MyApp/Controller/Status.pm' 'blib/lib/MyApp/Controller/Status.pm' \
+	  'lib/MyApp/Model/DB.pm' 'blib/lib/MyApp/Model/DB.pm' \
+	  'lib/MyApp/Model/DB.pm.new' 'blib/lib/MyApp/Model/DB.pm.new' \
+	  'lib/MyApp/Model/DB.pm.ora' 'blib/lib/MyApp/Model/DB.pm.ora' \
+	  'lib/MyApp/Schema.pm' 'blib/lib/MyApp/Schema.pm' \
+	  'lib/MyApp/Schema/Result/Author.pm' 'blib/lib/MyApp/Schema/Result/Author.pm' \
+	  'lib/MyApp/Schema/Result/Book.pm' 'blib/lib/MyApp/Schema/Result/Book.pm' \
+	  'lib/MyApp/Schema/Result/BookAuthor.pm' 'blib/lib/MyApp/Schema/Result/BookAuthor.pm' \
+	  'lib/MyApp/Schema/Result/Role.pm' 'blib/lib/MyApp/Schema/Result/Role.pm' \
+	  'lib/MyApp/Schema/Result/Status.pm' 'blib/lib/MyApp/Schema/Result/Status.pm' \
+	  'lib/MyApp/Schema/Result/User.pm' 'blib/lib/MyApp/Schema/Result/User.pm' \
+	  'lib/MyApp/Schema/Result/UserRole.pm' 'blib/lib/MyApp/Schema/Result/UserRole.pm' \
+	  'lib/MyApp/Schema/ResultSet/Book.pm' 'blib/lib/MyApp/Schema/ResultSet/Book.pm' \
+	  'lib/MyApp/Schema/ResultSet/Status.pm' 'blib/lib/MyApp/Schema/ResultSet/Status.pm' \
+	  'lib/MyApp/View/HTML.pm' 'blib/lib/MyApp/View/HTML.pm' \
+	  'lib/MyApp/View/STATUS.pm' 'blib/lib/MyApp/View/STATUS.pm' \
+	  'set_hashed_passwords.pl' '$(INST_LIB)/set_hashed_passwords.pl' 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 
 # --- MakeMaker selfdocument section:
+
+# here so even if top_targets is overridden, these will still be defined
+# gmake will silently still work if any are .PHONY-ed but nmake won't
+
+static ::
+	$(NOECHO) $(NOOP)
+
+dynamic ::
+	$(NOECHO) $(NOOP)
+
+config ::
+	$(NOECHO) $(NOOP)
 
 
 # --- MakeMaker postamble section:
@@ -1049,5 +1023,5 @@ checkdeps ::
 	$(PERL) Makefile.PL --checkdeps
 
 installdeps ::
-	$(PERL) Makefile.PL --config= --installdeps=Catalyst::Plugin::Authorization::ACL,0
+	$(PERL) Makefile.PL --config= --installdeps=Test::WWW::Mechanize,0,Catalyst::Runtime,0,Catalyst::ScriptRunner,0,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,Moose,0,namespace::autoclean,0,Config::General,0,Catalyst::Plugin::Authentication,0,Catalyst::Plugin::Session,0,Catalyst::Plugin::Session::Store::File,0,Catalyst::Plugin::Session::State::Cookie,0,Catalyst::Plugin::Authorization::Roles,0,Perl6::Junction,0,HTML::FormFu,0,Catalyst::Controller::HTML::FormFu,0,HTML::FormFu::Model::DBIC,0,Catalyst::Plugin::StatusMessage,0,Catalyst::Plugin::StackTrace,0,Catalyst::Authentication::Realm::SimpleDB,0,Catalyst::Controller::REST,0,MooseX::MarkAsMethods,0,MooseX::NonMoose,0,DBIx::Class::TimeStamp,0,DBIx::Class::PassphraseColumn,0,Carp::Always,0,Catalyst::Plugin::Authorization::ACL,0
 

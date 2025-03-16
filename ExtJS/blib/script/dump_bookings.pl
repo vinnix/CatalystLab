@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 # script/dump_bookings.pl
 # a really simple example of accessing a Catalyst application's Model
 # from an external script

@@ -7,9 +7,21 @@
         %]"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
     <title>[% template.title or "My Catalyst App!" %]</title>
-    <link rel="stylesheet" href="[% c.uri_for('/static/css/main.css') %]" />
-    </head>
+    <link rel="stylesheet" href="[% c.uri_for('/static/css/main.css') %]" /> 
+ 
+
+   </head>
     
     <body>
     <div id="outer">
@@ -24,13 +36,14 @@
     <div id="menu">
         Navigation:
         <ul>
-            <li><a href="[% c.uri_for('/books/list') %]">Home</a></li>
-            <li><a href="[% c.uri_for('/')
-                %]" title="Catalyst Welcome Page">Welcome</a></li>
-            <li><a href="[% c.uri_for('/books/form_create')
-                %]" title="To Add a new book">New Book</a></li>
+            <li><a href="[% c.uri_for('/') %]" title="Catalyst Welcome Page">Welcome</a></li>
+            <li><a href="[% c.uri_for('/books/list') %]">List of Books</a></li>
+            <li><a href="[% c.uri_for('/books/form_create') %]" title="To Add a new book">New Book</a></li>
+            <li><a href="[% c.uri_for('/books/formfu_create') %]" title="To Add a new book(via formfu)">New Book - FormFu</a></li>
+
         </ul>
-    </div><!-- end menu -->
+    </div>
+    <!-- end menu -->
     
     <div id="content">
         [%# Status and error messages %]
@@ -38,11 +51,14 @@
         <span class="error">[% error_msg %]</span>
         [%# This is where TT will stick all of your template's contents. -%]
         [% content %]
-    </div><!-- end content -->
-    </div><!-- end bodyblock -->
+    </div>
+    <!-- end content -->
+    </div>
+    <!-- end bodyblock -->
     
     <div id="footer">Copyright (c) your name goes here</div>
-    </div><!-- end outer -->
+    </div>
+    <!-- end outer -->
     
     </body>
     </html>
